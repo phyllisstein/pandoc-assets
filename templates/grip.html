@@ -1,0 +1,88 @@
+<!doctype html>
+<html class='$if(font)$$font$$else$system$endif$' lang='$if(lang)$$lang$$else$en-us$endif$'>
+    <head>
+        <meta charset='utf-8'>
+        <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+
+        <meta content='article' name='og:type'>
+
+        $if(title)$
+            <title>$title$$if(subtitle)$ | $subtitle$$endif$</title>
+            <meta content='$title$' name='og:title'>
+            <meta content='$title$' itemprop='name'>
+            <meta content='$title$' name='twitter:title'>
+        $endif$
+
+        $if(author)$
+            $for(author)$
+                <meta content='$author$' name='article:author'>
+            $endfor$
+            <meta content='$author-meta$' name='author'>
+        $endif$
+
+        $if(date-meta)$
+            <meta content='$date-meta$' name='article:published_time'>
+            <meta content='$date-meta$' name='revised'>
+        $endif$
+
+        $if(subject)$
+            <meta content='$subject$' name='article:section'>
+        $endif$
+
+        $if(keywords)$
+            <meta content='$for(keywords)$$keywords$$sep$,$endfor$' name='keywords'>
+            <meta content='$for(keywords)$$keywords$$sep$ $endfor$' name='article:tag'>
+        $endif$
+
+        $if(abstract)$
+            <meta content='$abstract$' name='summary'>
+            <meta content='$abstract$' name='twitter:card'>
+        $endif$
+
+        $if(math)$
+            $math$
+        $endif$
+
+        $for(header-includes)$
+            $header-includes$
+        $endfor$
+    </head>
+    <body>
+        $for(include-before)$
+            $include-before$
+        $endfor$
+        <div class='page'>
+            <div class='preview-page' id='preview-page'>
+                <main>
+                    <div class='container new-discussion-timeline experiment-repo-nav'>
+                        <div class='repository-content'>
+                            <div class='Box Box--condensed instapaper_body md'>
+                                <div class='Box-header d-flex flex-items-center flex-justify-between px-2'>
+                                    <h3 class='Box-title pr-3'>
+                                        $if(title)$
+                                            <span class='octicon octicon-book'></span>
+                                            &nbsp;$title$$if(subtitle)$: $subtitle$$endif$
+                                        $endif$
+                                    </h3>
+                                </div>
+                                <div class='Box-body'>
+                                    <article class='markdown-body entry-content p-5' itemprop='text'>
+                                        $if(toc)$
+                                            $toc$
+                                        $endif$
+
+                                        $body$
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        $for(include-after)$
+            $include-after$
+        $endfor$
+        <script async src='http://pandoc.here/bundle.js'></script>
+    </body>
+</html>

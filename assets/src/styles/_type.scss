@@ -1,0 +1,64 @@
+@import 'rwd';
+@import 'scale';
+
+html {
+    color: rgba(0, 0, 0, 87%);
+
+    font: {
+        feature-settings: 'kern', 'liga', 'calt', 'lnum', 'pnum';
+        kerning: auto;
+        size: 62.5%;
+        variant: {
+            ligatures: common-ligatures contextual;
+            numeric: lining-nums proportional-nums;
+        }
+    }
+
+    line-height: 1.778;
+}
+
+body {
+    color: inherit;
+    font: {
+        family: inherit;
+        size: inherit;
+    }
+}
+
+p {
+    text-indent: 0;
+}
+
+.markdown-body {
+    font-size: ms(7);
+
+    @include breakpoint('print') {
+        font-size: ms(5);
+    }
+
+    p {
+        text-align: left;
+    }
+
+    blockquote {
+        font-weight: 200;
+    }
+
+    > .sourceCode {
+        margin: 2rem;
+    }
+
+    code,
+    kbd,
+    pre,
+    pre > code,
+    samp,
+    tt {
+        font: {
+            family: "PragmataPro Liga", monospace;
+            size: 95%;
+        }
+
+        white-space: pre-wrap;
+    }
+}

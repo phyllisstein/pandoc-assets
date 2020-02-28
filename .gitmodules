@@ -1,0 +1,3 @@
+[submodule "goodies"]
+	path = goodies
+	url = https://github.com/tajmone/pandoc-goodies.git

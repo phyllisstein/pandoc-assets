@@ -1,0 +1,37 @@
+.container {
+    max-width: calc(98rem + 10vw);
+    padding: 2.5vh 5vw;
+    width: auto;
+}
+
+.repository-content {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    hyphens: auto;
+    justify-content: center;
+    min-height: 95vh;
+}
+
+.Box--condensed {
+    width: 100%;
+}
+
+.Box-body {
+    border-bottom: 0;
+}
+
+.p-5 {
+    padding-top: 0;
+}
+
+.markdown-body {
+    figure {
+        margin: 2rem;
+
+        > * {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}

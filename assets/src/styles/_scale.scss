@@ -1,0 +1,7 @@
+@import '~mathsass/dist/math';
+@import '~modularscale-sass/stylesheets/modularscale';
+
+$modularscale: (
+    base: 1rem 1.778rem,
+    ratio: $minor-third,
+);

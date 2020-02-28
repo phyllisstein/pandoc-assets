@@ -1,0 +1,28 @@
+@import '~plumber-sass/plumber';
+@import 'rwd';
+@import 'scale';
+
+$mono-font-config: (
+    pragmatapro: (
+        baseline: 0.128,
+        family: 'PragmataPro Liga',
+    ),
+);
+
+
+@each $font, $config in $mono-font-config {
+    html.#{ $font } {
+        font-family: map-get($config, family);
+
+        pre,
+        code {
+            @include plumber(
+                $baseline: map-get($config, baseline),
+                $font-size: strip-unit(ms(4)),
+                $grid-height: 1rem,
+                $line-height: round(strip-unit(ms(6))),
+                $use-baseline-origin: false,
+            );
+        }
+    }
+}
