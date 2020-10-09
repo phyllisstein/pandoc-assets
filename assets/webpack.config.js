@@ -1,13 +1,33 @@
 const autoprefixer = require('autoprefixer')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const cssnano = require('cssnano')
+const fiber = require('fibers')
 const mime = require('mime')
 const path = require('path')
 
 module.exports = {
     mode: 'development',
-    devtool: 'cheap-module-source-map',
+    devtool: 'source-map',
     context: path.resolve('src'),
+    resolve: {
+        enforceExtension: false,
+        extensions: [
+            '.js',
+            '.jsx',
+            '.ts',
+            '.tsx',
+            '.wasm',
+            '.mjs',
+            '.json',
+            '.css',
+            '.scss',
+        ],
+        modules: [
+            path.resolve('./node_modules'),
+            path.resolve('./src'),
+            path.resolve('./vendor'),
+        ],
+    },
     entry: {
         bundle: './index',
         Hyphenopoly: 'hyphenopoly/Hyphenopoly',
@@ -20,30 +40,24 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.css$/i,
+                use: [
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' },
+                    { loader: 'postcss-loader' },
+                ]
+            },
+            {
                 test: /\.s[ac]ss$/i,
                 use: [
                     {
                         loader: 'style-loader',
-                        options: {
-                            esModule: true,
-                        },
                     },
                     {
                         loader: 'css-loader',
-                        options: {
-                            esModule: true,
-                        },
                     },
                     {
                         loader: 'postcss-loader',
-                        options: {
-                            plugins: [
-                                autoprefixer({
-                                    flexbox: false,
-                                }),
-                                cssnano(),
-                            ],
-                        },
                     },
                     {
                         loader: 'resolve-url-loader',
@@ -52,6 +66,9 @@ module.exports = {
                         loader: 'sass-loader',
                         options: {
                             implementation: require('sass'),
+                            sassOptions: {
+                                fiber,
+                            },
                             sourceMap: true,
                         },
                     },
@@ -68,8 +85,8 @@ module.exports = {
         ],
     },
     plugins: [
-        new CleanWebpackPlugin(),
-        // FIXME: Broken for Webpack 5.
+        // new CleanWebpackPlugin(),
+        // NOTE: Broken for Webpack 5.
         // new S3Plugin({
         //     s3Options: {
         //         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -84,6 +101,29 @@ module.exports = {
         //     },
         // }),
     ],
+    cache: {
+        buildDependencies: {
+            config: [__filename],
+        },
+        type: 'filesystem',
+    },
+    snapshot: {
+        buildDependencies: {
+            timestamp: true,
+        },
+        managedPaths: [
+            path.resolve('./node_modules'),
+        ],
+        module: {
+            timestamp: true,
+        },
+        resolve: {
+            timestamp: true,
+        },
+        resolveBuildDependencies: {
+            timestamp: true,
+        },
+    },
     experiments: {
         asset: true,
     },
