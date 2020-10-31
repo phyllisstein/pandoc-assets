@@ -4,12 +4,12 @@ html {
     color: rgba(0, 0, 0, 87%);
 
     font: {
-        feature-settings: 'kern', 'liga', 'calt', 'lnum', 'pnum';
+        feature-settings: 'kern', 'liga', 'onum', 'pnum';
         kerning: auto;
         size: 50%;
         variant: {
             ligatures: common-ligatures contextual;
-            numeric: lining-nums proportional-nums;
+            numeric: oldstyle-nums proportional-nums;
         }
     }
 
@@ -38,7 +38,7 @@ p {
     }
 
     blockquote {
-        font-weight: 300;
+        font-weight: 400;
     }
 
     > .sourceCode {

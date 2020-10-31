@@ -3,8 +3,7 @@
     font-family: 'PragmataPro Liga';
     font-style: normal;
     font-weight: 400;
-    src: url('./PragmataProLiga-Regular.woff2') format('woff2'),
-         url('./PragmataProLiga-Regular.woff') format('woff');
+    src: url('./PragmataProLiga-Regular.otf') format('otf');
 }
 
 @font-face {
@@ -12,8 +11,7 @@
     font-family: 'PragmataPro Liga';
     font-style: italic;
     font-weight: 400;
-    src: url('./PragmataProLiga-Italic.woff2') format('woff2'),
-         url('./PragmataProLiga-Italic.woff') format('woff');
+    src: url('./PragmataProLiga-RegularItalic.otf') format('otf');
 }
 
 @font-face {
@@ -21,8 +19,7 @@
     font-family: 'PragmataPro Liga';
     font-style: normal;
     font-weight: 700;
-    src: url('./PragmataProLiga-Bold.woff2') format('woff2'),
-         url('./PragmataProLiga-Bold.woff') format('woff');
+    src: url('./PragmataProLiga-Bold.otf') format('otf');
 }
 
 @font-face {
@@ -30,6 +27,5 @@
     font-family: 'PragmataPro Liga';
     font-style: italic;
     font-weight: 700;
-    src: url('./PragmataProLiga-BoldItalic.woff2') format('woff2'),
-         url('./PragmataProLiga-BoldItalic.woff') format('woff');
+    src: url('./PragmataProLiga-BoldItalic.otf') format('otf');
 }

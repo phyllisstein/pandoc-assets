@@ -40,20 +40,20 @@ $sans-font-config: (
             li {
                 @include plumber(
                     $baseline: map-get($config, baseline),
-                    $font-size: strip-unit(ms(7)),
+                    $font-size: strip-unit(ms(4)),
                     $grid-height: 1rem,
                     $leading-top: 1,
-                    $line-height: round(strip-unit(ms(9))),
+                    $line-height: round(strip-unit(ms(6))),
                     $use-baseline-origin: false
                 );
 
                 @include respond-to('print') {
                     @include plumber(
                         $baseline: map-get($config, baseline),
-                        $font-size: strip-unit(ms(6)),
+                        $font-size: strip-unit(ms(3)),
                         $grid-height: 1rem,
                         $leading-top: 1,
-                        $line-height: round(strip-unit(ms(9))),
+                        $line-height: round(strip-unit(ms(5))),
                         $use-baseline-origin: false
                     );
                 }
@@ -68,7 +68,7 @@ $sans-font-config: (
                     $baseline: map-get($config, baseline),
                     $font-size: strip-unit(ms(4)),
                     $grid-height: 1rem,
-                    $line-height: round(strip-unit(ms(9))),
+                    $line-height: round(strip-unit(ms(10))),
                     $use-baseline-origin: false
                 );
 
@@ -90,10 +90,10 @@ $sans-font-config: (
                 h#{ $h } {
                     @include plumber(
                         $baseline: map-get($config, baseline),
-                        $font-size: strip-unit(ms(16 - $h * 2)),
+                        $font-size: strip-unit(ms(10 - $h * 2)),
                         $grid-height: 1rem,
-                        $line-height: round(strip-unit(ms(16 - $h))),
-                        $leading-top: round(strip-unit(ms(16 - $h * 2))),
+                        $line-height: round(strip-unit(ms(10 - $h))),
+                        $leading-top: round(strip-unit(ms(10 - $h * 2))),
                         $use-baseline-origin: false
                     );
 

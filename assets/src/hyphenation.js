@@ -17,11 +17,14 @@ window.Hyphenopoly = {
     },
     setup: {
         hide: 'false',
+        normalize: true,
         selectors: {
-            '.markdown-body': {},
+            '.markdown-body': {
+                orphanControl: 3,
+            },
         },
-        timeout: 10000,
+        timeout: 1000,
     },
 }
 
-require('hyphenopoly/Hyphenopoly_Loader')
+document.addEventListener('DOMContentLoaded', () => require('hyphenopoly/Hyphenopoly_Loader'))
