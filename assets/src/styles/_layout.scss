@@ -1,7 +1,14 @@
 .container {
-    max-width: calc(98rem + 10vw);
-    padding: 2.5vh 5vw;
-    width: auto;
+    padding: 5%;
+    width: auto !important;
+
+    @include respond-to('print') {
+        padding: 0;
+    }
+
+    @include respond-to('md') {
+        padding: 5vh 15vw;
+    }
 }
 
 .repository-content {
@@ -21,13 +28,17 @@
     border-bottom: 0;
 }
 
+.Box-title {
+    width: fit-content;
+}
+
 .p-5 {
     padding-top: 0;
 }
 
 .markdown-body {
     figure {
-        margin: 2rem;
+        margin: ms(2);
 
         > * {
             display: block;

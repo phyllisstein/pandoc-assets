@@ -1,1 +1,11 @@
 @import '~breakpoint-sass/stylesheets/breakpoint';
+
+$breakpoints: add-breakpoint('sm', 20rem);
+$breakpoints: add-breakpoint('md', 42rem);
+$breakpoints: add-breakpoint('lg', 66rem);
+$breakpoints: add-breakpoint('xlg', 82rem);
+$breakpoints: add-breakpoint('max', 99rem);
+$breakpoints: add-breakpoint('print', print);
+
+@include breakpoint-set('to ems', false);
+@include breakpoint-set('no-query-fallbacks', true);

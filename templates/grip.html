@@ -39,6 +39,8 @@
             <meta content='$abstract$' name='twitter:card'>
         $endif$
 
+        <link href='http://pandoc.here/bundle.css' rel='stylesheet'>
+
         $if(math)$
             $math$
         $endif$
@@ -83,6 +85,6 @@
         $for(include-after)$
             $include-after$
         $endfor$
-        <script async src='http://pandoc.here/bundle.js'></script>
+        <script async defer src='http://pandoc.here/bundle.js'></script>
     </body>
 </html>

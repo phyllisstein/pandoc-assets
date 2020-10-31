@@ -1,5 +1,4 @@
-@import 'rwd';
-@import 'scale';
+@import '~plumber-sass/plumber';
 
 html {
     color: rgba(0, 0, 0, 87%);
@@ -7,14 +6,16 @@ html {
     font: {
         feature-settings: 'kern', 'liga', 'calt', 'lnum', 'pnum';
         kerning: auto;
-        size: 75%;
+        size: 50%;
         variant: {
             ligatures: common-ligatures contextual;
             numeric: lining-nums proportional-nums;
         }
     }
 
-    line-height: 1.778;
+    @include respond-to('lg') {
+        font-size: 62.5%;
+    }
 }
 
 body {
@@ -31,19 +32,13 @@ p {
 
 .markdown-body {
     break-inside: auto;
-    font-size: ms(7);
-
-    // @include breakpoint('print') {
-    //     font-size: ms(5);
-    // }
 
     p {
-        break-inside: auto;
-        text-align: justify;
+        text-align: left;
     }
 
     blockquote {
-        font-weight: 200;
+        font-weight: 300;
     }
 
     > .sourceCode {
@@ -57,7 +52,7 @@ p {
     samp,
     tt {
         font: {
-            family: "PragmataPro Liga", monospace;
+            family: 'PragmataPro Liga', monospace;
             size: 95%;
         }
 

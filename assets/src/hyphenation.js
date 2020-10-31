@@ -16,9 +16,11 @@ window.Hyphenopoly = {
         'en-us': 'FORCEHYPHENOPOLY',
     },
     setup: {
+        hide: 'false',
         selectors: {
             '.markdown-body': {},
         },
+        timeout: 10000,
     },
 }
 

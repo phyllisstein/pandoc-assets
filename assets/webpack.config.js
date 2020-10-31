@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const cssnano = require('cssnano')
 const fiber = require('fibers')
 const mime = require('mime')
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
 module.exports = {
@@ -11,17 +12,6 @@ module.exports = {
     context: path.resolve('src'),
     resolve: {
         enforceExtension: false,
-        extensions: [
-            '.js',
-            '.jsx',
-            '.ts',
-            '.tsx',
-            '.wasm',
-            '.mjs',
-            '.json',
-            '.css',
-            '.scss',
-        ],
         modules: [
             path.resolve('./node_modules'),
             path.resolve('./src'),
@@ -42,7 +32,7 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: [
-                    { loader: 'style-loader' },
+                    { loader: MiniCSSExtractPlugin.loader },
                     { loader: 'css-loader' },
                     { loader: 'postcss-loader' },
                 ]
@@ -51,7 +41,7 @@ module.exports = {
                 test: /\.s[ac]ss$/i,
                 use: [
                     {
-                        loader: 'style-loader',
+                        loader: MiniCSSExtractPlugin.loader,
                     },
                     {
                         loader: 'css-loader',
@@ -66,10 +56,6 @@ module.exports = {
                         loader: 'sass-loader',
                         options: {
                             implementation: require('sass'),
-                            sassOptions: {
-                                fiber,
-                            },
-                            sourceMap: true,
                         },
                     },
                 ],
@@ -77,15 +63,22 @@ module.exports = {
             {
                 test: /\.woff2?$/i,
                 type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[name][ext][query]',
+                },
             },
             {
                 test: /\.wasm$/i,
                 type: 'asset/resource',
+                generator: {
+                    filename: 'bin/[name][ext][query]',
+                },
             },
         ],
     },
     plugins: [
-        // new CleanWebpackPlugin(),
+        new CleanWebpackPlugin(),
+        new MiniCSSExtractPlugin(),
         // NOTE: Broken for Webpack 5.
         // new S3Plugin({
         //     s3Options: {
