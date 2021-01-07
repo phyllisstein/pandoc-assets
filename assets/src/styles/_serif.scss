@@ -1,36 +1,12 @@
-$sans-font-config: (
-    clean: (
-        baseline: 0.113,
-        family: 'Adobe Clean',
-    ),
-    flama: (
-        baseline: 0.12,
-        family: 'Flama',
-    ),
-    graphik: (
-        baseline: 0.133,
-        family: 'Graphik',
-    ),
-    inter: (
-        baseline: 0.121,
-        family: 'Inter',
-    ),
-    maison: (
-        baseline: 0.133,
-        family: 'Maison Neue',
-    ),
-    sst: (
-        baseline: 0.12,
-        family: 'SST',
-    ),
-    system: (
-        baseline: 0.119,
-        family: -apple-system,
+$serif-font-config: (
+    capita: (
+        baseline: 0.138,
+        family: 'Capita',
     ),
 );
 
 @each $font, $config in $sans-font-config {
-    html.#{$font} {
+    html.body-#{$font} {
         font-family: quote(map-get($config, family));
 
         .markdown-body {
@@ -85,30 +61,32 @@ $sans-font-config: (
                     );
                 }
             }
+        }
+    }
 
-            @for $h from 1 through 6 {
-                h#{$h} {
-                    @include plumber(
-                        $baseline: map-get($config, baseline),
-                        $font-size: strip-unit(ms(10 - $h * 2)),
-                        $grid-height: 1rem,
-                        $line-height: round(strip-unit(ms(10 - $h))),
-                        $leading-top: round(strip-unit(ms(10 - $h * 2))),
-                        $use-baseline-origin: false
-                    );
+    html.header-#{$font} {
+        @for $h from 1 through 6 {
+            h#{$h} {
+                @include plumber(
+                    $baseline: map-get($config, baseline),
+                    $font-size: strip-unit(ms(10 - $h * 2)),
+                    $grid-height: 1rem,
+                    $line-height: round(strip-unit(ms(10 - $h))),
+                    $leading-top: round(strip-unit(ms(10 - $h * 2))),
+                    $use-baseline-origin: false
+                );
 
-                    font-weight: 700;
+                font-weight: 700;
 
-                    &:first-child {
-                        margin-top: 0;
-                    }
+                &:first-child {
+                    margin-top: 0;
                 }
             }
+        }
 
-            h6 {
-                letter-spacing: 1ex;
-                text-transform: uppercase;
-            }
+        h6 {
+            letter-spacing: 1ex;
+            text-transform: uppercase;
         }
     }
 }
