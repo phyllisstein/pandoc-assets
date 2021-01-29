@@ -16,6 +16,7 @@ window.Hyphenopoly = {
         'en-us': 'FORCEHYPHENOPOLY',
     },
     setup: {
+        CORScredentials: 'omit',
         hide: 'false',
         normalize: true,
         selectors: {
