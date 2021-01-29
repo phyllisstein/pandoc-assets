@@ -1,4 +1,8 @@
-$sans-font-config: (
+$font-config: (
+    capita: (
+        baseline: 0.138,
+        family: 'Capita',
+    ),
     clean: (
         baseline: 0.113,
         family: 'Adobe Clean',
@@ -29,8 +33,8 @@ $sans-font-config: (
     ),
 );
 
-@each $font, $config in $sans-font-config {
-    html.#{$font} {
+@each $font, $config in $font-config {
+    html.body-#{$font} {
         font-family: quote(map-get($config, family));
 
         .markdown-body {
@@ -46,17 +50,6 @@ $sans-font-config: (
                     $line-height: round(strip-unit(ms(6))),
                     $use-baseline-origin: false
                 );
-
-                @include respond-to('print') {
-                    @include plumber(
-                        $baseline: map-get($config, baseline),
-                        $font-size: strip-unit(ms(3)),
-                        $grid-height: 1rem,
-                        $leading-top: 1,
-                        $line-height: round(strip-unit(ms(5))),
-                        $use-baseline-origin: false
-                    );
-                }
             }
 
             li > p:first-child {
@@ -74,40 +67,34 @@ $sans-font-config: (
 
                 color: #9e9e9e;
                 text-align: center;
-
-                @include respond-to('print') {
-                    @include plumber(
-                        $baseline: map-get($config, baseline),
-                        $font-size: strip-unit(ms(3)),
-                        $grid-height: 1rem,
-                        $line-height: round(strip-unit(ms(11))),
-                        $use-baseline-origin: false
-                    );
-                }
-            }
-
-            @for $h from 1 through 6 {
-                h#{$h} {
-                    @include plumber(
-                        $baseline: map-get($config, baseline),
-                        $font-size: strip-unit(ms(10 - $h * 2)),
-                        $grid-height: 1rem,
-                        $line-height: round(strip-unit(ms(10 - $h))),
-                        $leading-top: round(strip-unit(ms(10 - $h * 2))),
-                        $use-baseline-origin: false
-                    );
-
-                    font-weight: 700;
-
-                    &:first-child {
-                        margin-top: 0;
-                    }
-                }
             }
 
             h6 {
                 letter-spacing: 1ex;
                 text-transform: uppercase;
+            }
+        }
+    }
+
+    html.header-#{$font} {
+        .markdown-body {
+            @for $h from 1 through 6 {
+                h#{$h} {
+                    @include plumber(
+                        $baseline: map-get($config, baseline),
+                        $font-size: strip-unit(ms(8 - $h * 2)),
+                        $grid-height: 1rem,
+                        $line-height: round(strip-unit(ms(8 - $h))),
+                        $leading-top: round(strip-unit(ms(8 - $h * 2))),
+                        $use-baseline-origin: false
+                    );
+
+                    font-weight: 500;
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
             }
         }
     }

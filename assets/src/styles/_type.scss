@@ -4,7 +4,6 @@ html {
     color: rgba(0, 0, 0, 87%);
 
     font: {
-        feature-settings: 'kern', 'liga', 'onum', 'pnum';
         kerning: auto;
         size: 50%;
         variant: {
@@ -38,7 +37,7 @@ p {
     }
 
     blockquote {
-        font-weight: 400;
+        font-weight: 300;
     }
 
     > .sourceCode {
