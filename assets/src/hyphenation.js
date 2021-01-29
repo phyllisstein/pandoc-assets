@@ -27,4 +27,4 @@ window.Hyphenopoly = {
     },
 }
 
-document.addEventListener('DOMContentLoaded', () => require('hyphenopoly/Hyphenopoly_Loader'))
+require('hyphenopoly/Hyphenopoly_Loader')
