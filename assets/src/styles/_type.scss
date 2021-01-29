@@ -3,6 +3,10 @@
 html {
     color: rgba(0, 0, 0, 87%);
 
+    @include respond-to('print') {
+        color: rgba(0, 0, 0, 1);
+    }
+
     font: {
         kerning: auto;
         size: 50%;
