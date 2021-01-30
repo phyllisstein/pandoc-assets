@@ -7,7 +7,7 @@
     }
 
     @include respond-to('md') {
-        padding: 5vh 15vw;
+        padding: 5vh 20vw;
     }
 }
 
@@ -15,7 +15,7 @@
     align-items: stretch;
     display: flex;
     flex-direction: row;
-    hyphens: auto;
+    hyphens: manual;
     justify-content: center;
     min-height: 95vh;
 }

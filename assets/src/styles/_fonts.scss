@@ -61,7 +61,7 @@ $font-config: (
                     $baseline: map-get($config, baseline),
                     $font-size: strip-unit(ms(4)),
                     $grid-height: 1rem,
-                    $line-height: round(strip-unit(ms(10))),
+                    $line-height: round(strip-unit(ms(5))),
                     $use-baseline-origin: false
                 );
 

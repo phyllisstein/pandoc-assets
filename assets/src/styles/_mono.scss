@@ -6,18 +6,14 @@ $mono-font-config: (
 );
 
 @each $font, $config in $mono-font-config {
-    html.#{ $font } {
-        font-family: map-get($config, family);
-
-        pre,
-        code {
-            @include plumber(
-                $baseline: map-get($config, baseline),
-                $font-size: strip-unit(ms(4)),
-                $grid-height: 1rem,
-                $line-height: round(strip-unit(ms(6))),
-                $use-baseline-origin: false
-            );
-        }
+    pre,
+    code {
+        @include plumber(
+            $baseline: map-get($config, baseline),
+            $font-size: strip-unit(ms(4)),
+            $grid-height: 1rem,
+            $line-height: round(strip-unit(ms(4))),
+            $use-baseline-origin: false
+        );
     }
 }

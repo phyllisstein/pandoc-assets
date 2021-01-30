@@ -15,10 +15,6 @@ html {
             numeric: oldstyle-nums proportional-nums;
         }
     }
-
-    @include respond-to('lg') {
-        font-size: 62.5%;
-    }
 }
 
 body {
@@ -35,6 +31,7 @@ p {
 
 .markdown-body {
     break-inside: auto;
+    hyphens: manual;
 
     p {
         text-align: left;
