@@ -44,11 +44,12 @@ $font-config: (
             li {
                 @include plumber(
                     $baseline: map-get($config, baseline),
-                    $font-size: strip-unit(ms(4)),
+                    $font-size: strip-unit(ms(10)),
                     $grid-height: 1rem,
-                    $leading-top: 1,
-                    $line-height: round(strip-unit(ms(6))),
-                    $use-baseline-origin: false
+                    $leading-bottom: 2,
+                    $leading-top: 2,
+                    $line-height: round(strip-unit(ms(13))),
+                    $use-baseline-origin: true
                 );
             }
 
@@ -56,16 +57,30 @@ $font-config: (
                 padding-top: 0;
             }
 
+            blockquote > p {
+                @include plumber(
+                    $baseline: map-get($config, baseline),
+                    $font-size: strip-unit(ms(11)),
+                    $grid-height: 1rem,
+                    $leading-bottom: 2,
+                    $leading-top: 2,
+                    $line-height: round(strip-unit(ms(14))),
+                    $use-baseline-origin: true
+                );
+            }
+
             figcaption {
                 @include plumber(
                     $baseline: map-get($config, baseline),
-                    $font-size: strip-unit(ms(4)),
+                    $font-size: strip-unit(ms(9)),
                     $grid-height: 1rem,
-                    $line-height: round(strip-unit(ms(5))),
-                    $use-baseline-origin: false
+                    $leading-bottom: 2,
+                    $leading-top: 2,
+                    $line-height: round(strip-unit(ms(12))),
+                    $use-baseline-origin: true
                 );
 
-                color: #9e9e9e;
+                color: #5a5a5a;
                 text-align: center;
             }
 
@@ -82,11 +97,12 @@ $font-config: (
                 h#{$h} {
                     @include plumber(
                         $baseline: map-get($config, baseline),
-                        $font-size: strip-unit(ms(8 - $h * 2)),
+                        $font-size: strip-unit(ms(22 - $h * 2)),
                         $grid-height: 1rem,
-                        $line-height: round(strip-unit(ms(8 - $h))),
-                        $leading-top: round(strip-unit(ms(8 - $h * 2))),
-                        $use-baseline-origin: false
+                        $line-height: round(strip-unit(ms(22 - $h))),
+                        $leading-top: round(strip-unit(ms(22 - $h * 2))),
+                        $leading-bottom: round(strip-unit(ms(22 - $h * 2))),
+                        $use-baseline-origin: true
                     );
 
                     font-weight: 500;

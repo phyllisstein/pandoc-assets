@@ -10,10 +10,12 @@ $mono-font-config: (
     code {
         @include plumber(
             $baseline: map-get($config, baseline),
-            $font-size: strip-unit(ms(4)),
+            $font-size: strip-unit(ms(10)),
             $grid-height: 1rem,
-            $line-height: round(strip-unit(ms(4))),
-            $use-baseline-origin: false
+            $leading-bottom: 2,
+            $leading-top: 2,
+            $line-height: round(strip-unit(ms(14))),
+            $use-baseline-origin: true
         );
     }
 }
