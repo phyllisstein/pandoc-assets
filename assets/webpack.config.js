@@ -16,6 +16,7 @@ const getLinkedPath = (...fragments) =>
     )
 
 const IS_PRODUCTION = !!process.env.NODE_ENV && process.env.NODE_ENV === 'production'
+const PUBLIC_PATH = (IS_PRODUCTION && 'https://hot.garb.ag/') || process.env.PUBLIC_PATH || '/'
 
 module.exports = {
     mode: process.env.NODE_ENV || 'development',
@@ -35,7 +36,7 @@ module.exports = {
     },
     output: {
         path: getLinkedPath('public'),
-        publicPath: 'https://hot.garb.ag/',
+        publicPath: PUBLIC_PATH,
         filename: '[name].js',
     },
     module: {
@@ -93,30 +94,4 @@ module.exports = {
             filename: `styles/[name].css`
         }),
     ].filter(Boolean),
-    cache: {
-        buildDependencies: {
-            config: [__filename],
-        },
-        type: 'filesystem',
-    },
-    snapshot: {
-        buildDependencies: {
-            timestamp: true,
-        },
-        managedPaths: [
-            getLinkedPath('./node_modules'),
-        ],
-        module: {
-            timestamp: true,
-        },
-        resolve: {
-            timestamp: true,
-        },
-        resolveBuildDependencies: {
-            timestamp: true,
-        },
-    },
-    experiments: {
-        asset: true,
-    },
 }

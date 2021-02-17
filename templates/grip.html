@@ -39,7 +39,11 @@
             <meta content='$abstract$' name='twitter:card'>
         $endif$
 
-        <link crossorigin='anonymous' href='https://hot.garb.ag/styles/bundle.css' rel='stylesheet'>
+        $if(asset-host)$
+            <link crossorigin='anonymous' href='$asset-host$/styles/bundle.css' rel='stylesheet'>
+        $else$
+            <link crossorigin='anonymous' href='https://hot.garb.ag/styles/bundle.css' rel='stylesheet'>
+        $endif$
 
         $if(math)$
             $math$
@@ -85,6 +89,10 @@
         $for(include-after)$
             $include-after$
         $endfor$
-        <script async defer crossorigin='anonymous' src='https://hot.garb.ag/bundle.js'></script>
+        $if(asset-host)$
+            <script async defer crossorigin='anonymous' src='$asset-host$/bundle.js'></script>
+        $else$
+            <script async defer crossorigin='anonymous' src='https://hot.garb.ag/bundle.js'></script>
+        $endif$
     </body>
 </html>

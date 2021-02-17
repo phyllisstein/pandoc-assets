@@ -4,7 +4,8 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
-        "build": "cross-env NODE_ENV=production webpack && aws --no-cli-pager s3 cp public s3://hot-garb-ag-cloudfront --recursive --exclude .DS_Store --acl bucket-owner-full-control --only-show-errors && aws --no-cli-pager cloudfront create-invalidation --distribution-id E8VRXSVFPL6GI --paths '/*'",
+        "build:dev": "cross-env NODENODE_ENV=development webpack",
+        "build:prod": "cross-env NODE_ENV=production webpack && aws --no-cli-pager s3 cp public s3://hot-garb-ag-cloudfront --recursive --exclude .DS_Store --acl bucket-owner-full-control --only-show-errors && aws --no-cli-pager cloudfront create-invalidation --distribution-id E8VRXSVFPL6GI --paths '/*'",
         "clean": "concurrently 'yarn:clean:*'",
         "clean:build": "rimraf public",
         "clean:cache": "rimraf node_modules/.cache",
@@ -37,7 +38,7 @@
         "stylelint-config-standard": "^20.0.0",
         "stylelint-order": "^4.1.0",
         "webpack": "^5.18.0",
-        "webpack-cli": "^4.4.0",
+        "webpack-cli": "^4.5.0",
         "webpack-dev-server": "^3.11.2"
     },
     "devDependencies": {
