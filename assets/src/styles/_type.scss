@@ -25,22 +25,32 @@ body {
     }
 }
 
-p {
-    text-indent: 0;
-}
-
 .markdown-body {
     break-inside: auto;
     hyphens: manual;
-
-    p {
-        text-align: left;
-    }
 
     blockquote {
         color: #6e6e6e;
         font-weight: 300;
         margin: 3.157rem 5%;
+
+        p {
+            padding: 1rem 0 !important;
+        }
+    }
+
+    figcaption {
+        color: #6e6e6e;
+        font-weight: 300;
+        text-align: right;
+    }
+
+    .Dedication p {
+        color: #6e6e6e;
+        display: block;
+        font-weight: 300;
+        font-size: ms(8) !important;
+        text-align: center;
     }
 
     > .sourceCode {

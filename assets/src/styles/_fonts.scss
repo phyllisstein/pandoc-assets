@@ -44,44 +44,37 @@ $font-config: (
             li {
                 @include plumber(
                     $baseline: map-get($config, baseline),
-                    $font-size: strip-unit(ms(10)),
+                    $font-size: strip-unit(ms(9)),
                     $grid-height: 1rem,
-                    $leading-bottom: 2,
-                    $leading-top: 2,
-                    $line-height: round(strip-unit(ms(13))),
-                    $use-baseline-origin: true
+                    $leading-bottom: 1,
+                    $leading-top: 0,
+                    $line-height: round(strip-unit(ms(12))),
+                    $use-baseline-origin: false
                 );
-            }
-
-            li > p:first-child {
-                padding-top: 0;
             }
 
             blockquote > p {
                 @include plumber(
                     $baseline: map-get($config, baseline),
-                    $font-size: strip-unit(ms(11)),
+                    $font-size: strip-unit(ms(10)),
                     $grid-height: 1rem,
-                    $leading-bottom: 2,
-                    $leading-top: 2,
-                    $line-height: round(strip-unit(ms(14))),
-                    $use-baseline-origin: true
+                    $leading-bottom: 0,
+                    $leading-top: 0,
+                    $line-height: round(strip-unit(ms(13))),
+                    $use-baseline-origin: false
                 );
             }
 
             figcaption {
                 @include plumber(
                     $baseline: map-get($config, baseline),
-                    $font-size: strip-unit(ms(9)),
+                    $font-size: strip-unit(ms(6)),
                     $grid-height: 1rem,
-                    $leading-bottom: 2,
-                    $leading-top: 2,
+                    $leading-bottom: 0,
+                    $leading-top: 1,
                     $line-height: round(strip-unit(ms(12))),
-                    $use-baseline-origin: true
+                    $use-baseline-origin: false
                 );
-
-                color: #5a5a5a;
-                text-align: center;
             }
 
             h6 {
@@ -97,12 +90,12 @@ $font-config: (
                 h#{$h} {
                     @include plumber(
                         $baseline: map-get($config, baseline),
-                        $font-size: strip-unit(ms(22 - $h * 2)),
+                        $font-size: strip-unit(ms(18 - $h * 2)),
                         $grid-height: 1rem,
-                        $line-height: round(strip-unit(ms(22 - $h))),
-                        $leading-top: round(strip-unit(ms(22 - $h * 2))),
-                        $leading-bottom: round(strip-unit(ms(22 - $h * 2))),
-                        $use-baseline-origin: true
+                        $line-height: round(strip-unit(ms(18 - $h))),
+                        $leading-top: round(strip-unit(ms(18 - $h * 2))),
+                        $leading-bottom: round(strip-unit(ms(6 - $h * 2))),
+                        $use-baseline-origin: false
                     );
 
                     font-weight: 500;

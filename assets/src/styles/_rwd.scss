@@ -1,8 +1,8 @@
 @import '~breakpoint-sass/stylesheets/breakpoint';
 
-@include add-breakpoint('sm', 20rem);
-@include add-breakpoint('md', 42rem);
-@include add-breakpoint('lg', 66rem);
-@include add-breakpoint('xlg', 82rem);
-@include add-breakpoint('max', 99rem);
+@include add-breakpoint('sm', 320px);
+@include add-breakpoint('md', 672px);
+@include add-breakpoint('lg', 1056px);
+@include add-breakpoint('xlg', 1312px);
+@include add-breakpoint('max', 1584px);
 @include add-breakpoint('print', print);

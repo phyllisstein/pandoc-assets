@@ -6,7 +6,7 @@
         padding: 0;
     }
 
-    @include respond-to('md') {
+    @include respond-to('lg') {
         padding: 5vh 20vw;
     }
 }
@@ -33,7 +33,7 @@
 }
 
 .p-5 {
-    padding-top: 0;
+    padding: ms(6) !important;
 }
 
 .octicon {
@@ -42,11 +42,10 @@
 
 .markdown-body {
     figure {
-        margin: ms(2);
-
-        > * {
-            display: block;
-            margin: 0 auto;
-        }
+        align-items: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: ms(16) ms(24);
     }
 }
