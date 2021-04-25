@@ -1,0 +1,5 @@
+*.otf filter=git-crypt diff=git-crypt
+*.ttf filter=git-crypt diff=git-crypt
+*.woff filter=git-crypt diff=git-crypt
+*.woff2 filter=git-crypt diff=git-crypt
+package.json filter=git-crypt diff=git-crypt

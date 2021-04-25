@@ -7,27 +7,18 @@ const mime = require('mime')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
-const getLinkedPath = (...fragments) =>
-    path.resolve(
-        path.join(
-            process.cwd(),
-            ...fragments,
-        )
-    )
-
 const IS_PRODUCTION = !!process.env.NODE_ENV && process.env.NODE_ENV === 'production'
 const PUBLIC_PATH = (IS_PRODUCTION && 'https://hot.garb.ag/') || process.env.PUBLIC_PATH || '/'
 
 module.exports = {
     mode: process.env.NODE_ENV || 'development',
     devtool: 'source-map',
-    context: getLinkedPath('src'),
+    context: path.resolve('./src'),
     resolve: {
         enforceExtension: false,
         modules: [
-            getLinkedPath('./node_modules'),
-            getLinkedPath('./src'),
-            getLinkedPath('./vendor'),
+            './node_modules',
+            './src',
         ],
     },
     entry: {
@@ -35,12 +26,57 @@ module.exports = {
         Hyphenopoly: 'hyphenopoly/Hyphenopoly',
     },
     output: {
-        path: getLinkedPath('public'),
+        path: path.resolve('./public'),
         publicPath: PUBLIC_PATH,
         filename: '[name].js',
     },
     module: {
         rules: [
+            {
+                test: /\.js$/i,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                '@babel/env',
+                            ],
+                            plugins: [
+                                ['@babel/proposal-decorators', {
+                                    legacy: true,
+                                }],
+                                ['@babel/proposal-class-properties', {
+                                    loose: true,
+                                }],
+                                '@babel/transform-regenerator',
+                            ],
+                        },
+                    }
+                ]
+            },
+            {
+                test: /\.ts$/i,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                '@babel/env',
+                                '@babel/typescript',
+                            ],
+                            plugins: [
+                                ['@babel/proposal-decorators', {
+                                    legacy: true,
+                                }],
+                                ['@babel/proposal-class-properties', {
+                                    loose: true,
+                                }],
+                                '@babel/transform-regenerator',
+                            ],
+                        },
+                    }
+                ]
+            },
             {
                 test: /\.css$/i,
                 use: [
@@ -94,4 +130,12 @@ module.exports = {
             filename: `styles/[name].css`
         }),
     ].filter(Boolean),
+    resolve: {
+        extensions: [
+            '.css',
+            '.scss',
+            '.js',
+            '.ts',
+        ]
+    }
 }

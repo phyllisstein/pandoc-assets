@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use 'sass:math';
+
 $mono-font-config: (
     pragmatapro: (
         baseline: 0.128,
@@ -6,15 +9,18 @@ $mono-font-config: (
 );
 
 @each $font, $config in $mono-font-config {
+    $family: map.get($config, 'family') or map.get($config, 'pragmatapro', 'family');
+    $baseline: map.get($config, 'baseline') or map.get($config, 'pragmatapro', 'baseline');
+
     pre,
     code {
         @include plumber(
-            $baseline: map-get($config, baseline),
+            $baseline: $baseline,
             $font-size: strip-unit(ms(10)),
             $grid-height: 1rem,
             $leading-bottom: 2,
             $leading-top: 2,
-            $line-height: round(strip-unit(ms(14))),
+            $line-height: math.round(strip-unit(ms(14))),
             $use-baseline-origin: true
         );
     }

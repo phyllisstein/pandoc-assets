@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 $font-config: (
     capita: (
         baseline: 0.138,
@@ -10,6 +12,10 @@ $font-config: (
     din: (
         baseline: 0.25,
         family: 'DIN Next LT Pro',
+    ),
+    din-text: (
+        baseline: 0.1,
+        family: 'PF DIN Text',
     ),
     flama: (
         baseline: 0.12,
@@ -37,17 +43,92 @@ $font-config: (
     ),
 );
 
+html {
+    $default-font: maison;
+
+    $config: map.get($font-config, $default-font);
+    $family: map.get($config, 'family');
+    $baseline: map.get($config, 'baseline');
+
+    font-family: quote($family);
+
+    .markdown-body {
+        font-family: quote($family);
+
+        p,
+        li {
+            @include plumber(
+                $baseline: $baseline,
+                $font-size: strip-unit(ms(9)),
+                $grid-height: 1rem,
+                $leading-bottom: 1,
+                $leading-top: 0,
+                $line-height: round(strip-unit(ms(12))),
+                $use-baseline-origin: false
+            );
+        }
+
+        blockquote > p {
+            @include plumber(
+                $baseline: $baseline,
+                $font-size: strip-unit(ms(10)),
+                $grid-height: 1rem,
+                $leading-bottom: 0,
+                $leading-top: 0,
+                $line-height: round(strip-unit(ms(13))),
+                $use-baseline-origin: false
+            );
+        }
+
+        figcaption {
+            @include plumber(
+                $baseline: $baseline,
+                $font-size: strip-unit(ms(6)),
+                $grid-height: 1rem,
+                $leading-bottom: 0,
+                $leading-top: 1,
+                $line-height: round(strip-unit(ms(12))),
+                $use-baseline-origin: false
+            );
+        }
+
+        @for $h from 1 through 6 {
+            h#{$h} {
+                @include plumber(
+                    $baseline: $baseline,
+                    $font-size: strip-unit(ms(18 - $h * 2)),
+                    $grid-height: 1rem,
+                    $line-height: round(strip-unit(ms(20 - $h))),
+                    $leading-top: round(strip-unit(ms(18 - $h * 2))),
+                    $leading-bottom: round(strip-unit(ms(6 - $h * 2))),
+                    $use-baseline-origin: false
+                );
+
+                font-family: quote($family);
+                font-weight: 500;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
 @each $font, $config in $font-config {
+    $family: map.get($config, 'family');
+    $baseline: map.get($config, 'baseline');
+
     html.body-#{$font} {
-        font-family: quote(map-get($config, family));
+        font-family: quote($family);
 
         .markdown-body {
-            font-family: quote(map-get($config, family));
+            font-family: quote($family);
 
             p,
             li {
                 @include plumber(
-                    $baseline: map-get($config, baseline),
+                    $baseline: $baseline,
                     $font-size: strip-unit(ms(9)),
                     $grid-height: 1rem,
                     $leading-bottom: 1,
@@ -59,7 +140,7 @@ $font-config: (
 
             blockquote > p {
                 @include plumber(
-                    $baseline: map-get($config, baseline),
+                    $baseline: $baseline,
                     $font-size: strip-unit(ms(10)),
                     $grid-height: 1rem,
                     $leading-bottom: 0,
@@ -71,7 +152,7 @@ $font-config: (
 
             figcaption {
                 @include plumber(
-                    $baseline: map-get($config, baseline),
+                    $baseline: $baseline,
                     $font-size: strip-unit(ms(6)),
                     $grid-height: 1rem,
                     $leading-bottom: 0,
@@ -93,15 +174,16 @@ $font-config: (
             @for $h from 1 through 6 {
                 h#{$h} {
                     @include plumber(
-                        $baseline: map-get($config, baseline),
+                        $baseline: $baseline,
                         $font-size: strip-unit(ms(18 - $h * 2)),
                         $grid-height: 1rem,
-                        $line-height: round(strip-unit(ms(18 - $h))),
+                        $line-height: round(strip-unit(ms(20 - $h))),
                         $leading-top: round(strip-unit(ms(18 - $h * 2))),
                         $leading-bottom: round(strip-unit(ms(6 - $h * 2))),
                         $use-baseline-origin: false
                     );
 
+                    font-family: quote($family);
                     font-weight: 500;
 
                     &:first-child {
