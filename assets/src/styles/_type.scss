@@ -15,6 +15,9 @@ html {
             numeric: oldstyle-nums proportional-nums;
         }
     }
+
+    -moz-osx-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
