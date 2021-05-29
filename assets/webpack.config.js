@@ -1,7 +1,6 @@
 const autoprefixer = require('autoprefixer')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const cssnano = require('cssnano')
-const fiber = require('fibers')
 const fs = require('fs')
 const mime = require('mime')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')

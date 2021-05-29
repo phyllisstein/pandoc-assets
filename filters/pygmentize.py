@@ -1,11 +1,11 @@
-#!/usr/local/bin/python2
+#!/usr/bin/env python3
 
 from __future__ import print_function
+from jsx import JsxLexer
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name, guess_lexer
 from pygments.formatters import HtmlFormatter
 from pandocfilters import toJSONFilter, RawBlock
-
 
 def pygmentize(key, value, format, meta):
     def fallback():
@@ -23,22 +23,25 @@ def pygmentize(key, value, format, meta):
 
         lexer = None
 
-        try:
-            lexer = get_lexer_by_name(lang, encoding='utf-8')
-        except:
-            pass
+        if lang in ('typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'jsx',):
+            lexer = JsxLexer()
+        else:
+            try:
+                lexer = get_lexer_by_name(lang, encoding='utf-8')
+            except:
+                pass
 
-        try:
-            lexer = guess_lexer(value[1], encoding='utf-8')
-        except:
-            pass
+            try:
+                lexer = guess_lexer(value[1], encoding='utf-8')
+            except:
+                pass
 
         if not lexer:
             return fallback()
 
         formatter = HtmlFormatter(style='colorful', encoding='utf-8')
         highlit = highlight(value[1], lexer, formatter)
-        return RawBlock('html', highlit)
+        return RawBlock('html', highlit.decode('utf-8'))
 
 if __name__ == '__main__':
     toJSONFilter(pygmentize)

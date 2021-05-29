@@ -1,4 +1,3 @@
-import './vendor/github/primer';
-import './vendor/fonts'
+import './vendor'
 import './styles'
 import './hyphenation'
