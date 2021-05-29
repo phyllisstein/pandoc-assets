@@ -62,30 +62,30 @@
                 <main>
                     <div class='container new-discussion-timeline experiment-repo-nav'>
                         <div class='repository-content'>
-
-                            <div class='flex-shrink-0 col-12'>
-                                <div class='Box md js-code-block-container Box--responsive instapaper_body' id='readme'>
-                                    <div class='d-flex js-sticky js-position-sticky top-0 border-top-0 border-bottom p-2 flex-items-center flex-justify-between color-bg-primary rounded-top-2'>
-                                        <div class='d-flex flex-items-center'>
-                                            <span class="btn btn-octicon p-2" aria-label="Edit this file"><svg class="octicon octicon-pencil" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.013 1.427a1.75 1.75 0 012.474 0l1.086 1.086a1.75 1.75 0 010 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 01-.927-.928l.929-3.25a1.75 1.75 0 01.445-.758l8.61-8.61zm1.414 1.06a.25.25 0 00-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 000-.354l-1.086-1.086zM11.189 6.25L9.75 4.81l-6.286 6.287a.25.25 0 00-.064.108l-.558 1.953 1.953-.558a.249.249 0 00.108-.064l6.286-6.286z"></path></svg></span>
-                                            <h2 class='Box-title'>
-                                                $if(title)$
-                                                    <a class='Link--primary '>$title$$if(subtitle)$: $subtitle$$endif$</a>
-                                                $endif$
-                                            </h2>
+                            <div class='gutter-condensed gutter-lg flex-column flex-md-row d-flex'>
+                                <div class='flex-shrink-0 col-12 col-md-9 mb-4 mb-md-0' style='margin: 2.5% auto;'>
+                                    <div class='Box md js-code-block-container Box--responsive' id='readme'>
+                                        <div class='d-flex js-sticky js-position-sticky top-0 border-top-0 border-bottom p-2 flex-items-center flex-justify-between color-bg-primary rounded-top-2'>
+                                            <div class='d-flex flex-items-center'>
+                                                <span class="btn btn-octicon p-2" aria-label="Edit this file"><svg class="octicon octicon-pencil" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.013 1.427a1.75 1.75 0 012.474 0l1.086 1.086a1.75 1.75 0 010 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 01-.927-.928l.929-3.25a1.75 1.75 0 01.445-.758l8.61-8.61zm1.414 1.06a.25.25 0 00-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 000-.354l-1.086-1.086zM11.189 6.25L9.75 4.81l-6.286 6.287a.25.25 0 00-.064.108l-.558 1.953 1.953-.558a.249.249 0 00.108-.064l6.286-6.286z"></path></svg></span>
+                                                <h2 class='Box-title'>
+                                                    $if(title)$
+                                                        <a class='Link--primary '>$title$$if(subtitle)$: $subtitle$$endif$</a>
+                                                    $endif$
+                                                </h2>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class='Box-body px-5 pb-5'>
-                                        <article class='markdown-body entry-content container-lg'>
+                                        <div class='Box-body px-5 pb-5'>
+                                            <article class='markdown-body entry-content container-lg'>
 $if(toc)$
 $toc$
 $endif$
 $body$
-                                        </article>
+                                            </article>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </main>
