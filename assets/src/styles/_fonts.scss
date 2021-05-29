@@ -177,14 +177,14 @@ html {
                         $baseline: $baseline,
                         $font-size: strip-unit(ms(18 - $h * 2)),
                         $grid-height: 1rem,
-                        $line-height: round(strip-unit(ms(20 - $h))),
+                        $line-height: round(strip-unit(ms(18 - $h))),
                         $leading-top: round(strip-unit(ms(18 - $h * 2))),
-                        $leading-bottom: round(strip-unit(ms(6 - $h * 2))),
+                        $leading-bottom: round(strip-unit(ms(12 - $h * 2))),
                         $use-baseline-origin: false
                     );
 
                     font-family: quote($family);
-                    font-weight: 500;
+                    font-weight: 600;
 
                     &:first-child {
                         margin-top: 0;
