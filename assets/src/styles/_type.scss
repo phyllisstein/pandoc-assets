@@ -1,7 +1,7 @@
 @import '~plumber-sass/plumber';
 
 html {
-    color: var(--color-text-primary);
+    color: #2C2C2C;
 
     @include respond-to('print') {
         color: rgba(0, 0, 0, 1);
@@ -33,19 +33,19 @@ body {
     hyphens: manual;
 
     blockquote {
-        color: var(--color-text-tertiary);
+        color: #4b4b4b;
         font-weight: 300;
         margin: 3.157rem 5%;
     }
 
     figcaption {
-        color: var(--color-text-tertiary);
+        color: #4b4b4b;
         font-weight: 300;
         text-align: right;
     }
 
     .Dedication p {
-        color: var(--color-text-tertiary);
+        color: #4b4b4b;
         display: block;
         font-weight: 300;
         font-size: ms(8) !important;
