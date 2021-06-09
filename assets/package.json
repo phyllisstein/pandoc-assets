@@ -1,8 +1,8 @@
 {
     "name": "pandoc-assets",
     "author": "Daniel P. Shannon <daniel@daniel.sh>",
-    "license": "UNLICENSED",
-    "private": true,
+    "version": "0.0.0",
+    "license": "LGPL-3.0-or-later",
     "scripts": {
         "build:dev": "cross-env NODENODE_ENV=development webpack",
         "build:prod": "cross-env NODE_ENV=production webpack && aws --no-cli-pager s3 cp public s3://hot-garb-ag-cloudfront --recursive --exclude .DS_Store --acl bucket-owner-full-control --only-show-errors && aws --no-cli-pager cloudfront create-invalidation --distribution-id E8VRXSVFPL6GI --paths '/*'",
