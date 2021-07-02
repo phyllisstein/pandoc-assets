@@ -32,6 +32,16 @@ body {
     break-inside: auto;
     hyphens: manual;
 
+    p {
+        text-align: left;
+        text-indent: 0;
+    }
+
+    p + p,
+    .indent {
+        text-indent: ms(8);
+    }
+
     blockquote {
         color: #4b4b4b;
         font-weight: 300;
@@ -64,7 +74,7 @@ body {
     tt {
         font: {
             family: 'PragmataPro Liga', monospace;
-            size: 95%;
+            size: 90%;
         }
 
         line-height: 0;

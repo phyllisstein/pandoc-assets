@@ -38,7 +38,12 @@ module.exports = {
                         loader: 'babel-loader',
                         options: {
                             presets: [
-                                '@babel/env',
+                                [
+                                    '@babel/env',
+                                    {
+                                        loose: true
+                                    }
+                                ]
                             ],
                             plugins: [
                                 ['@babel/proposal-decorators', {
@@ -60,7 +65,9 @@ module.exports = {
                         loader: 'babel-loader',
                         options: {
                             presets: [
-                                '@babel/env',
+                                ['@babel/env', {
+                                    loose: true
+                                }],
                                 '@babel/typescript',
                             ],
                             plugins: [

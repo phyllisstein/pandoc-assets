@@ -55,17 +55,34 @@ html {
     .markdown-body {
         font-family: quote($family);
 
-        p,
-        li {
+        p {
             @include plumber(
                 $baseline: $baseline,
                 $font-size: strip-unit(ms(9)),
                 $grid-height: 1rem,
-                $leading-bottom: 1,
+                $leading-bottom: 0,
                 $leading-top: 0,
-                $line-height: round(strip-unit(ms(12))),
+                $line-height: round(strip-unit(ms(13))),
                 $use-baseline-origin: false
             );
+        }
+
+        li > p {
+            @include plumber(
+                $baseline: $baseline,
+                $font-size: strip-unit(ms(9)),
+                $grid-height: 1rem,
+                $leading-bottom: 2,
+                $leading-top: 0,
+                $line-height: round(strip-unit(ms(13))),
+                $use-baseline-origin: false
+            );
+
+            text-indent: 0;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
 
         blockquote > p {
@@ -75,7 +92,7 @@ html {
                 $grid-height: 1rem,
                 $leading-bottom: 0,
                 $leading-top: 0,
-                $line-height: round(strip-unit(ms(13))),
+                $line-height: round(strip-unit(ms(14))),
                 $use-baseline-origin: false
             );
         }
@@ -98,9 +115,9 @@ html {
                     $baseline: $baseline,
                     $font-size: strip-unit(ms(18 - $h * 2)),
                     $grid-height: 1rem,
-                    $line-height: round(strip-unit(ms(20 - $h))),
-                    $leading-top: round(strip-unit(ms(18 - $h * 2))),
-                    $leading-bottom: round(strip-unit(ms(6 - $h * 2))),
+                    $line-height: round(strip-unit(ms(22 - $h))),
+                    $leading-top: round(strip-unit(ms(20 - $h * 2))),
+                    $leading-bottom: round(strip-unit(ms(12 - $h * 2))),
                     $use-baseline-origin: false
                 );
 
@@ -125,17 +142,34 @@ html {
         .markdown-body {
             font-family: quote($family);
 
-            p,
-            li {
+            p {
                 @include plumber(
                     $baseline: $baseline,
                     $font-size: strip-unit(ms(9)),
                     $grid-height: 1rem,
-                    $leading-bottom: 1,
+                    $leading-bottom: 0,
                     $leading-top: 0,
-                    $line-height: round(strip-unit(ms(12))),
+                    $line-height: round(strip-unit(ms(13))),
                     $use-baseline-origin: false
                 );
+            }
+
+            li > p {
+                @include plumber(
+                    $baseline: $baseline,
+                    $font-size: strip-unit(ms(9)),
+                    $grid-height: 1rem,
+                    $leading-bottom: 2,
+                    $leading-top: 0,
+                    $line-height: round(strip-unit(ms(13))),
+                    $use-baseline-origin: false
+                );
+
+                text-indent: 0;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
             }
 
             blockquote > p {
@@ -145,7 +179,7 @@ html {
                     $grid-height: 1rem,
                     $leading-bottom: 0,
                     $leading-top: 0,
-                    $line-height: round(strip-unit(ms(13))),
+                    $line-height: round(strip-unit(ms(14))),
                     $use-baseline-origin: false
                 );
             }
@@ -157,7 +191,7 @@ html {
                     $grid-height: 1rem,
                     $leading-bottom: 0,
                     $leading-top: 1,
-                    $line-height: round(strip-unit(ms(12))),
+                    $line-height: round(strip-unit(ms(13))),
                     $use-baseline-origin: false
                 );
             }
@@ -177,8 +211,8 @@ html {
                         $baseline: $baseline,
                         $font-size: strip-unit(ms(18 - $h * 2)),
                         $grid-height: 1rem,
-                        $line-height: round(strip-unit(ms(18 - $h))),
-                        $leading-top: round(strip-unit(ms(18 - $h * 2))),
+                        $line-height: round(strip-unit(ms(22 - $h))),
+                        $leading-top: round(strip-unit(ms(20 - $h * 2))),
                         $leading-bottom: round(strip-unit(ms(12 - $h * 2))),
                         $use-baseline-origin: false
                     );
