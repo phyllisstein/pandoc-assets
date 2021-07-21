@@ -2,10 +2,6 @@
     padding: 5%;
     width: auto !important;
 
-    @include respond-to('print') {
-        padding: 0;
-    }
-
     @include respond-to('lg') {
         padding: 5vh 20vw;
     }
