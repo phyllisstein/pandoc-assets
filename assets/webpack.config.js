@@ -7,7 +7,9 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
 const IS_PRODUCTION = !!process.env.NODE_ENV && process.env.NODE_ENV === 'production'
-const PUBLIC_PATH = (IS_PRODUCTION && 'https://hot.garb.ag/') || process.env.PUBLIC_PATH || '/'
+const PUBLIC_PATH = IS_PRODUCTION
+    ? 'https://hot.garb.ag/'
+    : 'https://pandoc.here/'
 
 module.exports = {
     mode: process.env.NODE_ENV || 'development',
