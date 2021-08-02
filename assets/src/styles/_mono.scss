@@ -2,6 +2,10 @@
 @use 'sass:math';
 
 $mono-font-config: (
+    jetbrains: (
+        baseline: 0.132,
+        family: 'JetBrains Mono',
+    ),
     pragmatapro: (
         baseline: 0.128,
         family: 'PragmataPro Liga',
