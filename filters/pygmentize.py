@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/opt/homebrew/opt/python3/libexec/bin/python
 
 from __future__ import print_function
 from jsx import JsxLexer
