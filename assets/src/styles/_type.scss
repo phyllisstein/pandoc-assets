@@ -1,7 +1,7 @@
 @import '~plumber-sass/plumber';
 
 html {
-    color: #2c2c2c;
+    color: rgba(0, 0, 0, 0.87);
 
     @include respond-to('print') {
         color: rgba(0, 0, 0, 1);
@@ -43,23 +43,23 @@ body {
     }
 
     blockquote {
-        color: #6e6e6e;
-        font-weight: 300;
-        margin: 3.157rem 5%;
+        font-weight: 400;
+        margin: ms(4) 5%;
     }
 
     figcaption {
-        color: #6e6e6e;
         font-weight: 300;
         text-align: right;
     }
 
-    .Dedication p {
-        color: #6e6e6e;
-        display: block;
-        font-weight: 300;
-        font-size: ms(8) !important;
-        text-align: center;
+    .Dedication {
+        margin: ms(4) 0;
+
+        p {
+            font-size: ms(8) !important;
+            text-align: center;
+            font-style: italic;
+        }
     }
 
     > .sourceCode {
