@@ -109,6 +109,34 @@ html {
             );
         }
 
+        .Alert,
+        .Warning,
+        .Error,
+        .Success,
+        .Note {
+            p {
+                @include plumber(
+                    $baseline: $baseline,
+                    $font-size: strip-unit(ms(8)),
+                    $grid-height: 1rem,
+                    $leading-bottom: 1,
+                    $leading-top: 1,
+                    $line-height: round(strip-unit(ms(11))),
+                    $use-baseline-origin: false
+                );
+
+                text-indent: 0;
+
+                &:first-child {
+                    padding-top: 0;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
         @for $h from 1 through 6 {
             h#{$h} {
                 @include plumber(
@@ -199,6 +227,34 @@ html {
             h6 {
                 letter-spacing: 1ex;
                 text-transform: uppercase;
+            }
+
+            .Alert,
+            .Warning,
+            .Error,
+            .Success,
+            .Note {
+                p {
+                    @include plumber(
+                        $baseline: $baseline,
+                        $font-size: strip-unit(ms(7)),
+                        $grid-height: 1rem,
+                        $leading-bottom: 1,
+                        $leading-top: 1,
+                        $line-height: round(strip-unit(ms(10))),
+                        $use-baseline-origin: false
+                    );
+
+                    text-indent: 0;
+
+                    &:first-child {
+                        padding-top: 0;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
             }
         }
     }

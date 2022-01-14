@@ -25,35 +25,30 @@
 // The gray tones of '.Note' (which isn't part of Primer's Alerts) were added
 // by me, using Primer's color scheme as a reference.
 
-// Adobe Spectrum Colors:
-// Text: 600
-// Background: 400
-// Border: 700
-
 // Alert (Default) » Blue
-$Alert-Text:          #0d66d0;
-$Alert-BG:            #2680eb;
-$Alert-Border:        #095aba;
+$Alert-Text:          #224466;
+$Alert-BG:	          #E2EEF9;
+$Alert-Border:	      #BAC6D3;
 
 // Alert Warn » Yellow
-$AlertWarn-Text:      #c4a600;
-$AlertWarn-BG:        #dfbf00;
-$AlertWarn-Border:    #b79900;
+$AlertWarn-Text:	  #4C4A42;
+$AlertWarn-BG:	      #FFF9EA;
+$AlertWarn-Border:    #DFD8C2;
 
 // Alert Error » Red
-$AlertError-Text:     #c9252d;
-$AlertError-BG:       #bb121a;
-$AlertError-Border:   #e34850;
+$AlertError-Text:	  #991111;
+$AlertError-BG:	      #FCDEDE;
+$AlertError-Border:	  #D2B2B2;
 
 // Alert Success » Green
-$AlertSuccess-Text:   #12805c;
-$AlertSuccess-BG:     #2d9d78;
-$AlertSuccess-Border: #107154;
+$AlertSuccess-Text:	  #22662C;
+$AlertSuccess-BG:	  #E2F9E5;
+$AlertSuccess-Border: #BAD3BE;
 
 // Alert Note » Gray (not part of Primer CSS)
-$AlertNote-Text:      #6e6e6e; // 700
-$AlertNote-BG:        #cacaca; // 400
-$AlertNote-Border:    #4b4b4b; // 800
+$AlertNote-Text:	  #2F363D;
+$AlertNote-BG:	      #F6F8FA;
+$AlertNote-Border:	  #D5D8DA;
 
 // ------------------------------------------------------------------------------
 
@@ -69,13 +64,13 @@ $AlertNote-Border:    #4b4b4b; // 800
     border-style:  solid;
     border-width:  1px;
     border-radius: 4px;
-    p {
-        margin-top: 0;
+    // p {
+    //     margin-top: 0;
 
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
+    //     &:last-child {
+    //         margin-bottom: 0;
+    //     }
+    // }
 }
 
 .Alert {
