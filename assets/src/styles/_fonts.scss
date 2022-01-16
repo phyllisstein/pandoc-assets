@@ -106,18 +106,6 @@ $default-body: clean;
                     $use-baseline-origin: false
                 );
             }
-
-            .Dedication > p {
-                @include plumber(
-                    $baseline: $baseline,
-                    $font-size: strip-unit(ms(15)),
-                    $grid-height: 0.5rem,
-                    $leading-bottom: 1,
-                    $leading-top: 1,
-                    $line-height: round(strip-unit(ms(16))),
-                    $use-baseline-origin: false
-                );
-            }
         }
     }
 
@@ -206,6 +194,30 @@ $default-body: clean;
             font-weight: 600;
             margin: 0;
             padding: 1rem 0;
+        }
+
+        .Dedication > p {
+            @include plumber(
+                $baseline: $baseline,
+                $font-size: strip-unit(ms(16)),
+                $grid-height: 0.5rem,
+                $leading-bottom: 1,
+                $leading-top: 1,
+                $line-height: round(strip-unit(ms(17))),
+                $use-baseline-origin: false
+            );
+
+            font-family: quote($family);
+            font-style: italic;
+            font-weight: 400;
+
+            & > em {
+                font-style: normal;
+
+                & > em {
+                    font-style: italic;
+                }
+            }
         }
     }
 }

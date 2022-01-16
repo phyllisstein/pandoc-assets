@@ -36,6 +36,15 @@ body {
 
         em {
             line-height: 1;
+            font-style: italic;
+
+            > em {
+                font-style: normal;
+
+                & > em {
+                    font-style: italic;
+                }
+            }
         }
 
         @include respond-to('print') {
@@ -52,7 +61,7 @@ body {
     }
 
     blockquote {
-        border-color: rgba(225, 225, 225, 1.00);
+        border-color: rgba(202, 202, 202, 1.00);
         margin: ms(4) 10%;
 
         p {
@@ -80,7 +89,6 @@ body {
 
         p {
             text-align: center;
-            font-style: italic;
         }
     }
 
