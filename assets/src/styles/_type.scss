@@ -33,22 +33,29 @@ body {
     hyphens: manual;
 
     p {
-        text-align: left;
+        text-align: justify;
         text-indent: 0;
+        hyphens: manual;
     }
 
-    p + p,
-    .indent {
+    p + p {
         text-indent: ms(8);
     }
 
+    span.indent {
+        margin-left: ms(8);
+    }
+
     blockquote {
-        font-weight: 400;
-        margin: ms(4) 5%;
+        margin: ms(4) 10%;
+    }
+
+    ul,
+    ol {
+        margin: ms(4) 10%;
     }
 
     figcaption {
-        font-weight: 300;
         text-align: right;
     }
 

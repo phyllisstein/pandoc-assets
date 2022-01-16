@@ -43,128 +43,14 @@ $font-config: (
     ),
 );
 
-html {
-    $default-font: maison;
-
-    $config: map.get($font-config, $default-font);
-    $family: map.get($config, 'family');
-    $baseline: map.get($config, 'baseline');
-
-    font-family: quote($family);
-
-    .markdown-body {
-        font-family: quote($family);
-
-        p {
-            @include plumber(
-                $baseline: $baseline,
-                $font-size: strip-unit(ms(9)),
-                $grid-height: 1rem,
-                $leading-bottom: 0,
-                $leading-top: 0,
-                $line-height: round(strip-unit(ms(13))),
-                $use-baseline-origin: false
-            );
-        }
-
-        li > p {
-            @include plumber(
-                $baseline: $baseline,
-                $font-size: strip-unit(ms(9)),
-                $grid-height: 1rem,
-                $leading-bottom: 2,
-                $leading-top: 0,
-                $line-height: round(strip-unit(ms(13))),
-                $use-baseline-origin: false
-            );
-
-            text-indent: 0;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
-
-        blockquote > p {
-            @include plumber(
-                $baseline: $baseline,
-                $font-size: strip-unit(ms(10)),
-                $grid-height: 1rem,
-                $leading-bottom: 0,
-                $leading-top: 0,
-                $line-height: round(strip-unit(ms(14))),
-                $use-baseline-origin: false
-            );
-        }
-
-        figcaption {
-            @include plumber(
-                $baseline: $baseline,
-                $font-size: strip-unit(ms(6)),
-                $grid-height: 1rem,
-                $leading-bottom: 0,
-                $leading-top: 1,
-                $line-height: round(strip-unit(ms(12))),
-                $use-baseline-origin: false
-            );
-        }
-
-        .Alert,
-        .Warning,
-        .Error,
-        .Success,
-        .Note {
-            p {
-                @include plumber(
-                    $baseline: $baseline,
-                    $font-size: strip-unit(ms(8)),
-                    $grid-height: 1rem,
-                    $leading-bottom: 1,
-                    $leading-top: 1,
-                    $line-height: round(strip-unit(ms(11))),
-                    $use-baseline-origin: false
-                );
-
-                text-indent: 0;
-
-                &:first-child {
-                    padding-top: 0;
-                }
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-        }
-
-        @for $h from 1 through 6 {
-            h#{$h} {
-                @include plumber(
-                    $baseline: $baseline,
-                    $font-size: strip-unit(ms(18 - $h * 2)),
-                    $grid-height: 1rem,
-                    $line-height: round(strip-unit(ms(22 - $h))),
-                    $leading-top: round(strip-unit(ms(20 - $h * 2))),
-                    $leading-bottom: round(strip-unit(ms(12 - $h * 2))),
-                    $use-baseline-origin: false
-                );
-
-                font-family: quote($family);
-                font-weight: 600;
-
-                &:first-child {
-                    margin-top: 0;
-                }
-            }
-        }
-    }
-}
+$default-header: clean;
+$default-body: clean;
 
 @each $font, $config in $font-config {
     $family: map.get($config, 'family');
     $baseline: map.get($config, 'baseline');
 
-    html.body-#{$font} {
+    .body-#{$font} {
         font-family: quote($family);
 
         .markdown-body {
@@ -173,41 +59,50 @@ html {
             p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(9)),
-                    $grid-height: 1rem,
+                    $font-size: strip-unit(ms(17)),
+                    $grid-height: 0.5rem,
                     $leading-bottom: 0,
                     $leading-top: 0,
-                    $line-height: round(strip-unit(ms(13))),
+                    $line-height: round(strip-unit(ms(21))),
                     $use-baseline-origin: false
                 );
             }
 
+            li,
             li > p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(9)),
-                    $grid-height: 1rem,
-                    $leading-bottom: 2,
-                    $leading-top: 0,
-                    $line-height: round(strip-unit(ms(13))),
+                    $font-size: strip-unit(ms(17)),
+                    $grid-height: 0.5rem,
+                    $leading-bottom: 1,
+                    $leading-top: 1,
+                    $line-height: round(strip-unit(ms(21))),
                     $use-baseline-origin: false
                 );
 
-                text-indent: 0;
+                p + p {
+                    @include plumber(
+                        $baseline: $baseline,
+                        $font-size: strip-unit(ms(17)),
+                        $grid-height: 0.5rem,
+                        $leading-bottom: 2,
+                        $leading-top: 2,
+                        $line-height: round(strip-unit(ms(21))),
+                        $use-baseline-origin: false
+                    );
 
-                &:last-child {
-                    margin-bottom: 0;
+                    text-indent: 0;
                 }
             }
 
             blockquote > p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(10)),
-                    $grid-height: 1rem,
-                    $leading-bottom: 0,
-                    $leading-top: 0,
-                    $line-height: round(strip-unit(ms(14))),
+                    $font-size: strip-unit(ms(17)),
+                    $grid-height: 0.5rem,
+                    $leading-bottom: 1,
+                    $leading-top: 1,
+                    $line-height: round(strip-unit(ms(21))),
                     $use-baseline-origin: false
                 );
             }
@@ -223,9 +118,34 @@ html {
                     $use-baseline-origin: false
                 );
             }
+        }
+    }
+
+    .header-#{$font} {
+        .markdown-body {
+            @for $h from 1 through 6 {
+                h#{$h} {
+                    @include plumber(
+                        $baseline: $baseline,
+                        $font-size: strip-unit(ms(16 - $h)),
+                        $grid-height: 1rem,
+                        $line-height: round(strip-unit(ms(16 - $h))),
+                        $leading-top: round(strip-unit(ms(16 - $h))),
+                        $leading-bottom: round(strip-unit(ms(10 - $h))),
+                        $use-baseline-origin: false
+                    );
+
+                    font-family: quote($family);
+                    font-weight: 700;
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+            }
 
             h6 {
-                letter-spacing: 1ex;
+                letter-spacing: 1px;
                 text-transform: uppercase;
             }
 
@@ -237,14 +157,15 @@ html {
                 p {
                     @include plumber(
                         $baseline: $baseline,
-                        $font-size: strip-unit(ms(7)),
-                        $grid-height: 1rem,
+                        $font-size: strip-unit(ms(17)),
+                        $grid-height: 0.5rem,
                         $leading-bottom: 1,
                         $leading-top: 1,
-                        $line-height: round(strip-unit(ms(10))),
+                        $line-height: round(strip-unit(ms(21))),
                         $use-baseline-origin: false
                     );
 
+                    font-family: quote($family);
                     text-indent: 0;
 
                     &:first-child {
@@ -257,30 +178,27 @@ html {
                 }
             }
         }
-    }
 
-    html.header-#{$font} {
-        .markdown-body {
-            @for $h from 1 through 6 {
-                h#{$h} {
-                    @include plumber(
-                        $baseline: $baseline,
-                        $font-size: strip-unit(ms(18 - $h * 2)),
-                        $grid-height: 1rem,
-                        $line-height: round(strip-unit(ms(22 - $h))),
-                        $leading-top: round(strip-unit(ms(20 - $h * 2))),
-                        $leading-bottom: round(strip-unit(ms(12 - $h * 2))),
-                        $use-baseline-origin: false
-                    );
+        h2.Box-title {
+            @include plumber(
+                $baseline: $baseline,
+                $font-size: strip-unit(ms(8)),
+                $grid-height: 1rem,
+                $leading-bottom: 0,
+                $leading-top: 0,
+                $line-height: 1,
+                $use-baseline-origin: false
+            );
 
-                    font-family: quote($family);
-                    font-weight: 600;
-
-                    &:first-child {
-                        margin-top: 0;
-                    }
-                }
-            }
+            font-family: quote($family);
+            font-weight: 600;
+            margin: 0;
+            padding: 1rem 0;
         }
     }
+}
+
+html {
+    @extend .header-#{$default-header};
+    @extend .body-#{$default-header};
 }
