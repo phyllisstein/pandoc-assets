@@ -59,7 +59,7 @@ $default-body: clean;
             p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(17)),
+                    $font-size: strip-unit(ms(18)),
                     $grid-height: 0.5rem,
                     $leading-bottom: 0,
                     $leading-top: 0,
@@ -72,7 +72,7 @@ $default-body: clean;
             li > p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(17)),
+                    $font-size: strip-unit(ms(18)),
                     $grid-height: 0.5rem,
                     $leading-bottom: 1,
                     $leading-top: 1,
@@ -83,9 +83,9 @@ $default-body: clean;
                 p + p {
                     @include plumber(
                         $baseline: $baseline,
-                        $font-size: strip-unit(ms(17)),
+                        $font-size: strip-unit(ms(18)),
                         $grid-height: 0.5rem,
-                        $leading-bottom: 2,
+                        $leading-bottom: 0,
                         $leading-top: 2,
                         $line-height: round(strip-unit(ms(21))),
                         $use-baseline-origin: false
@@ -98,7 +98,7 @@ $default-body: clean;
             blockquote > p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(17)),
+                    $font-size: strip-unit(ms(18)),
                     $grid-height: 0.5rem,
                     $leading-bottom: 1,
                     $leading-top: 1,
@@ -107,14 +107,14 @@ $default-body: clean;
                 );
             }
 
-            figcaption {
+            .Dedication > p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(6)),
-                    $grid-height: 1rem,
-                    $leading-bottom: 0,
+                    $font-size: strip-unit(ms(15)),
+                    $grid-height: 0.5rem,
+                    $leading-bottom: 1,
                     $leading-top: 1,
-                    $line-height: round(strip-unit(ms(13))),
+                    $line-height: round(strip-unit(ms(16))),
                     $use-baseline-origin: false
                 );
             }
@@ -176,6 +176,18 @@ $default-body: clean;
                         margin-bottom: 0;
                     }
                 }
+            }
+
+            figcaption {
+                @include plumber(
+                    $baseline: $baseline,
+                    $font-size: strip-unit(ms(16)),
+                    $grid-height: 0.5rem,
+                    $leading-bottom: 0,
+                    $leading-top: 1,
+                    $line-height: round(strip-unit(ms(16))),
+                    $use-baseline-origin: false
+                );
             }
         }
 

@@ -1,12 +1,6 @@
 @import '~plumber-sass/plumber';
 
 html {
-    color: rgba(0, 0, 0, 0.87);
-
-    @include respond-to('print') {
-        color: rgba(0, 0, 0, 1);
-    }
-
     font: {
         kerning: auto;
         size: 50%;
@@ -33,21 +27,37 @@ body {
     hyphens: manual;
 
     p {
-        text-align: justify;
+        text-align: left;
         text-indent: 0;
         hyphens: manual;
+        break-inside: auto;
+
+        color: rgba(44, 44, 44, 1.00);
+
+        em {
+            line-height: 1;
+        }
+
+        @include respond-to('print') {
+            color: rgba(0, 0, 0, 1);
+        }
     }
 
     p + p {
-        text-indent: ms(8);
+        text-indent: ms(10);
     }
 
     span.indent {
-        margin-left: ms(8);
+        margin-left: ms(10);
     }
 
     blockquote {
+        border-color: rgba(225, 225, 225, 1.00);
         margin: ms(4) 10%;
+
+        p {
+            color: rgba(110, 110, 110, 1.00);
+        }
     }
 
     ul,
@@ -55,15 +65,20 @@ body {
         margin: ms(4) 10%;
     }
 
+    .small-caps,
+    .sc {
+        font-variant: all-small-caps;
+    }
+
     figcaption {
+        color: rgba(110, 110, 110, 1.00);
         text-align: right;
     }
 
     .Dedication {
-        margin: ms(4) 0;
+        margin: ms(10) 0;
 
         p {
-            font-size: ms(8) !important;
             text-align: center;
             font-style: italic;
         }
