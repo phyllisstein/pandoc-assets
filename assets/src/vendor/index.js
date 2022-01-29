@@ -1,5 +1,4 @@
 import './github/primer'
 import './goodies'
-import './skylighting'
-import './pygments'
+import './pandoc'
 import './fonts'
