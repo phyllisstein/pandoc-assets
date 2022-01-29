@@ -55,11 +55,11 @@
             $header-includes$
         $endfor$
 
-        $if(css)$
+        $for(css)$
         <style>
-            $css$
+            <link rel='stylesheet' href='$css$' />
         </style>
-        $endif$
+        $endfor$
     </head>
     <body>
         $for(include-before)$
