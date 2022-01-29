@@ -71,7 +71,7 @@ body {
 
     ul,
     ol {
-        margin: ms(4) 10%;
+        margin: ms(4);
     }
 
     .small-caps,
@@ -104,8 +104,10 @@ body {
     tt {
         font: {
             family: 'PragmataPro Liga', monospace;
-            size: 90%;
+            size: ms(8);
         }
+
+        font-variant-ligatures: common-ligatures discretionary-ligatures contextual;
 
         line-height: 0;
         white-space: pre-wrap;
