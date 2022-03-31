@@ -1,17 +1,27 @@
-const autoprefixer = require('autoprefixer')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const cssnano = require('cssnano')
-const fs = require('fs')
-const mime = require('mime')
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
-const path = require('path')
+import autoprefixer from 'autoprefixer'
+import { CleanWebpackPlugin } from 'clean-webpack-plugin'
+import cssnano from 'cssnano'
+import fs from 'fs'
+import { globbySync } from 'globby'
+import mime from 'mime'
+import MiniCSSExtractPlugin from 'mini-css-extract-plugin'
+import path from 'path'
+import sass from 'sass'
 
 const IS_PRODUCTION = !!process.env.NODE_ENV && process.env.NODE_ENV === 'production'
 const PUBLIC_PATH = IS_PRODUCTION
     ? 'https://hot.garb.ag/'
     : 'https://pandoc.here/'
 
-module.exports = {
+const fonts = globbySync('./src/vendor/fonts/**/*.scss')
+    .map(fn => fn.replace('src/vendor', 'vendor'))
+    .reduce((acc, fn) => {
+        const name = path.basename(fn, '.scss')
+        acc[name] = fn
+        return acc
+    }, {})
+
+export default {
     mode: process.env.NODE_ENV || 'development',
     devtool: 'source-map',
     context: path.resolve('./src'),
@@ -23,12 +33,15 @@ module.exports = {
         ],
     },
     entry: {
+        ...fonts,
         bundle: './index',
         Hyphenopoly: 'hyphenopoly/Hyphenopoly',
+
     },
     output: {
         path: path.resolve('./public'),
         publicPath: PUBLIC_PATH,
+        chunkFilename: '[name].[contenthash].js',
         filename: '[name].js',
     },
     module: {
@@ -113,7 +126,7 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                         options: {
-                            implementation: require('sass'),
+                            implementation: sass,
                         },
                     },
                 ],
@@ -122,14 +135,14 @@ module.exports = {
                 test: /\.(otf|woff2?)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'fonts/[name][ext][query]',
+                    filename: 'fonts/[name].[contenthash].[ext]',
                 },
             },
             {
                 test: /\.wasm$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'bin/[name][ext][query]',
+                    filename: 'bin/[name].[contenthash].[ext]',
                 },
             },
         ],
