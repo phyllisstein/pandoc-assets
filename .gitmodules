@@ -3,4 +3,4 @@
 	url = https://github.com/tajmone/pandoc-goodies.git
 [submodule "pp"]
 	path = pp
-	url = git://github.com/CDSoft/pp.git
+	url = https://github.com/CDSoft/pp.git
