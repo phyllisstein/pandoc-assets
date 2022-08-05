@@ -149,7 +149,7 @@ export default {
                     to: 'hyphenopoly/'
                 },
                 {
-                    from: path.resolve(__dirname, 'node_modules/hyphenopoly/min/Hyphenopoly*'),
+                    from: path.resolve(__dirname, 'node_modules/hyphenopoly/Hyphenopoly*.js'),
                     to: 'hyphenopoly/[name][ext]',
                 },
             ],
