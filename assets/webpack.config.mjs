@@ -7,6 +7,11 @@ import mime from 'mime'
 import MiniCSSExtractPlugin from 'mini-css-extract-plugin'
 import path from 'path'
 import sass from 'sass'
+import CopyPlugin from 'copy-webpack-plugin'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const IS_PRODUCTION = !!process.env.NODE_ENV && process.env.NODE_ENV === 'production'
 const PUBLIC_PATH = IS_PRODUCTION
@@ -25,17 +30,9 @@ export default {
     mode: process.env.NODE_ENV || 'development',
     devtool: 'source-map',
     context: path.resolve('./src'),
-    resolve: {
-        enforceExtension: false,
-        modules: [
-            './node_modules',
-            './src',
-        ],
-    },
     entry: {
         ...fonts,
         bundle: './index',
-        Hyphenopoly: 'hyphenopoly/Hyphenopoly',
 
     },
     output: {
@@ -138,19 +135,24 @@ export default {
                     filename: 'fonts/[name].[contenthash].[ext]',
                 },
             },
-            {
-                test: /\.wasm$/i,
-                type: 'asset/resource',
-                generator: {
-                    filename: 'bin/[name].[contenthash].[ext]',
-                },
-            },
         ],
     },
     plugins: [
         IS_PRODUCTION && new CleanWebpackPlugin(),
         new MiniCSSExtractPlugin({
             filename: `styles/[name].css`
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'node_modules/hyphenopoly/min/patterns/en-us.wasm'),
+                    to: 'hyphenopoly/'
+                },
+                {
+                    from: path.resolve(__dirname, 'node_modules/hyphenopoly/min/Hyphenopoly*'),
+                    to: 'hyphenopoly/[name][ext]',
+                },
+            ],
         }),
     ].filter(Boolean),
     resolve: {
@@ -159,6 +161,11 @@ export default {
             '.scss',
             '.js',
             '.ts',
-        ]
-    }
+        ],
+        enforceExtension: false,
+        modules: [
+            './node_modules',
+            './src',
+        ],
+    },
 }
