@@ -109,8 +109,8 @@ $if(asset-host)$
         window.addEventListener("load", () => {
             window.Hyphenopoly.config({
                 paths: {
-                    maindir: '/hyphenopoly/',
-                    patterndir: '/hyphenopoly/',
+                    maindir: '$asset-host$/hyphenopoly/',
+                    patterndir: '$asset-host$/hyphenopoly/',
                 },
                 require: {
                     'en-us': 'FORCEHYPHENOPOLY',
