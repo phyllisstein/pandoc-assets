@@ -60,12 +60,17 @@ body {
         margin-left: ms(10);
     }
 
+    span.noindent {
+        margin-left: calc(ms(10) * -1);
+    }
+
     blockquote {
         border-color: rgba(202, 202, 202, 1.00);
         margin: ms(4) 10%;
 
         p {
             color: rgba(110, 110, 110, 1.00);
+            text-align: left;
         }
     }
 
@@ -111,5 +116,10 @@ body {
 
         line-height: 0;
         white-space: pre-wrap;
+    }
+
+    span.smallcaps,
+    span.sc {
+        font-variant: small-caps;
     }
 }
