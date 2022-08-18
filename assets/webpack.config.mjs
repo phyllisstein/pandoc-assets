@@ -145,7 +145,7 @@ export default {
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, 'node_modules/hyphenopoly/min/patterns/en-us.wasm'),
+                    from: path.resolve(__dirname, 'node_modules/hyphenopoly/patterns/en-us.wasm'),
                     to: 'hyphenopoly/'
                 },
                 {
