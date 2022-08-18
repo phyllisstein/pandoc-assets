@@ -132,7 +132,7 @@ export default {
                 test: /\.(otf|woff2?)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'fonts/[name].[contenthash].[ext]',
+                    filename: 'fonts/[name].[contenthash][ext]',
                 },
             },
         ],
