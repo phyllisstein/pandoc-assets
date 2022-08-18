@@ -1,9 +1,13 @@
 @import '~plumber-sass/plumber';
 
 html {
+    font-size: 50%;
+}
+
+body {
     font: {
+        feature-settings: 'kern', 'liga', 'calt', 'onum', 'dlig', 'clig';
         kerning: auto;
-        size: 50%;
         variant: {
             ligatures: common-ligatures contextual;
             numeric: oldstyle-nums proportional-nums;
@@ -12,14 +16,6 @@ html {
 
     -moz-osx-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
-}
-
-body {
-    color: inherit;
-    font: {
-        family: inherit;
-        size: inherit;
-    }
 }
 
 .markdown-body {
@@ -32,7 +28,7 @@ body {
         hyphens: manual;
         break-inside: auto;
 
-        color: rgba(44, 44, 44, 1.00);
+        color: rgba(44, 44, 44, 1.00) !important;
 
         em {
             line-height: 1;
@@ -48,7 +44,7 @@ body {
         }
 
         @include respond-to('print') {
-            color: rgba(0, 0, 0, 1);
+            color: rgba(0, 0, 0, 1) !important;
         }
     }
 
@@ -65,11 +61,11 @@ body {
     }
 
     blockquote {
-        border-color: rgba(202, 202, 202, 1.00);
+        border-color: rgba(202, 202, 202, 1.00) !important;
         margin: ms(4) 10%;
 
         p {
-            color: rgba(110, 110, 110, 1.00);
+            color: rgba(110, 110, 110, 1.00) !important;
             text-align: left;
         }
     }
@@ -85,7 +81,7 @@ body {
     }
 
     figcaption {
-        color: rgba(110, 110, 110, 1.00);
+        color: rgba(110, 110, 110, 1.00) !important;
         text-align: right;
     }
 

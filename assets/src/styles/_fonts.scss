@@ -59,11 +59,11 @@ $default-body: clean;
             p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(18)),
+                    $font-size: strip-unit(ms(17)),
                     $grid-height: 0.5rem,
                     $leading-bottom: 0,
                     $leading-top: 0,
-                    $line-height: round(strip-unit(ms(21))),
+                    $line-height: round(strip-unit(ms(19))),
                     $use-baseline-origin: false
                 );
             }
@@ -72,22 +72,22 @@ $default-body: clean;
             li > p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(18)),
+                    $font-size: strip-unit(ms(17)),
                     $grid-height: 0.5rem,
                     $leading-bottom: 1,
                     $leading-top: 1,
-                    $line-height: round(strip-unit(ms(21))),
+                    $line-height: round(strip-unit(ms(19))),
                     $use-baseline-origin: false
                 );
 
                 p + p {
                     @include plumber(
                         $baseline: $baseline,
-                        $font-size: strip-unit(ms(18)),
+                        $font-size: strip-unit(ms(17)),
                         $grid-height: 0.5rem,
                         $leading-bottom: 0,
                         $leading-top: 2,
-                        $line-height: round(strip-unit(ms(21))),
+                        $line-height: round(strip-unit(ms(19))),
                         $use-baseline-origin: false
                     );
 
@@ -98,11 +98,11 @@ $default-body: clean;
             blockquote > p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(18)),
+                    $font-size: strip-unit(ms(17)),
                     $grid-height: 0.5rem,
                     $leading-bottom: 1,
                     $leading-top: 1,
-                    $line-height: round(strip-unit(ms(21))),
+                    $line-height: round(strip-unit(ms(19))),
                     $use-baseline-origin: false
                 );
             }
@@ -115,11 +115,11 @@ $default-body: clean;
                 h#{$h} {
                     @include plumber(
                         $baseline: $baseline,
-                        $font-size: strip-unit(ms(16 - $h)),
+                        $font-size: strip-unit(ms(17 - $h)),
                         $grid-height: 1rem,
-                        $line-height: round(strip-unit(ms(16 - $h))),
-                        $leading-top: round(strip-unit(ms(16 - $h))),
-                        $leading-bottom: round(strip-unit(ms(10 - $h))),
+                        $line-height: round(strip-unit(ms(17 - $h))),
+                        $leading-top: round(strip-unit(ms(17 - $h))),
+                        $leading-bottom: round(strip-unit(ms(1))),
                         $use-baseline-origin: false
                     );
 
@@ -149,7 +149,7 @@ $default-body: clean;
                         $grid-height: 0.5rem,
                         $leading-bottom: 1,
                         $leading-top: 1,
-                        $line-height: round(strip-unit(ms(21))),
+                        $line-height: round(strip-unit(ms(19))),
                         $use-baseline-origin: false
                     );
 
@@ -169,11 +169,11 @@ $default-body: clean;
             figcaption {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(16)),
+                    $font-size: strip-unit(ms(15)),
                     $grid-height: 0.5rem,
                     $leading-bottom: 0,
                     $leading-top: 1,
-                    $line-height: round(strip-unit(ms(16))),
+                    $line-height: round(strip-unit(ms(15))),
                     $use-baseline-origin: false
                 );
             }
@@ -182,7 +182,7 @@ $default-body: clean;
         h2.Box-title {
             @include plumber(
                 $baseline: $baseline,
-                $font-size: strip-unit(ms(8)),
+                $font-size: strip-unit(ms(7)),
                 $grid-height: 1rem,
                 $leading-bottom: 0,
                 $leading-top: 0,
@@ -199,11 +199,11 @@ $default-body: clean;
         .Dedication > p {
             @include plumber(
                 $baseline: $baseline,
-                $font-size: strip-unit(ms(16)),
+                $font-size: strip-unit(ms(15)),
                 $grid-height: 0.5rem,
                 $leading-bottom: 1,
                 $leading-top: 1,
-                $line-height: round(strip-unit(ms(17))),
+                $line-height: round(strip-unit(ms(15))),
                 $use-baseline-origin: false
             );
 
