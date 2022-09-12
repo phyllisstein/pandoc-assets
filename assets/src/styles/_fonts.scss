@@ -59,11 +59,11 @@ $default-body: clean;
             p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(17)),
+                    $font-size: strip-unit(ms(18)),
                     $grid-height: 0.5rem,
                     $leading-bottom: 0,
                     $leading-top: 0,
-                    $line-height: round(strip-unit(ms(19))),
+                    $line-height: round(strip-unit(ms(21))),
                     $use-baseline-origin: false
                 );
             }
@@ -72,39 +72,27 @@ $default-body: clean;
             li > p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(17)),
+                    $font-size: strip-unit(ms(18)),
                     $grid-height: 0.5rem,
                     $leading-bottom: 1,
                     $leading-top: 1,
-                    $line-height: round(strip-unit(ms(19))),
+                    $line-height: round(strip-unit(ms(21))),
                     $use-baseline-origin: false
                 );
 
                 p + p {
                     @include plumber(
                         $baseline: $baseline,
-                        $font-size: strip-unit(ms(17)),
+                        $font-size: strip-unit(ms(18)),
                         $grid-height: 0.5rem,
                         $leading-bottom: 0,
                         $leading-top: 2,
-                        $line-height: round(strip-unit(ms(19))),
+                        $line-height: round(strip-unit(ms(21))),
                         $use-baseline-origin: false
                     );
 
                     text-indent: 0;
                 }
-            }
-
-            blockquote > p {
-                @include plumber(
-                    $baseline: $baseline,
-                    $font-size: strip-unit(ms(17)),
-                    $grid-height: 0.5rem,
-                    $leading-bottom: 1,
-                    $leading-top: 1,
-                    $line-height: round(strip-unit(ms(19))),
-                    $use-baseline-origin: false
-                );
             }
         }
     }
@@ -145,11 +133,11 @@ $default-body: clean;
                 p {
                     @include plumber(
                         $baseline: $baseline,
-                        $font-size: strip-unit(ms(17)),
+                        $font-size: strip-unit(ms(18)),
                         $grid-height: 0.5rem,
                         $leading-bottom: 1,
                         $leading-top: 1,
-                        $line-height: round(strip-unit(ms(19))),
+                        $line-height: round(strip-unit(ms(21))),
                         $use-baseline-origin: false
                     );
 

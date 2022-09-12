@@ -62,7 +62,9 @@ body {
 
     blockquote {
         border-color: rgba(202, 202, 202, 1.00) !important;
+        border-left-width: 2px;
         margin: ms(4) 10%;
+        padding: ms(2) ms(8);
 
         p {
             color: rgba(110, 110, 110, 1.00) !important;
