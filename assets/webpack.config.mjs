@@ -16,7 +16,7 @@ const __dirname = path.dirname(__filename)
 const IS_PRODUCTION = !!process.env.NODE_ENV && process.env.NODE_ENV === 'production'
 const PUBLIC_PATH = IS_PRODUCTION
     ? 'https://hot.garb.ag/'
-    : 'https://pandoc.localhost/'
+    : 'http://pandoc.here/'
 
 const fonts = globbySync('./src/vendor/fonts/**/*.scss')
     .map(fn => fn.replace('src/vendor', 'vendor'))
@@ -168,4 +168,8 @@ export default {
             './src',
         ],
     },
+    optimization: {
+        mangleExports: false,
+        minimize: false,
+    }
 }
