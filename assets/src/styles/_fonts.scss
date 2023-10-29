@@ -72,11 +72,11 @@ $default-body: clean;
             li > p {
                 @include plumber(
                     $baseline: $baseline,
-                    $font-size: strip-unit(ms(18)),
+                    $font-size: strip-unit(ms(16)),
                     $grid-height: 0.5rem,
                     $leading-bottom: 1,
                     $leading-top: 1,
-                    $line-height: round(strip-unit(ms(21))),
+                    $line-height: round(strip-unit(ms(17))),
                     $use-baseline-origin: false
                 );
 
@@ -118,6 +118,31 @@ $default-body: clean;
                         margin-top: 0;
                     }
                 }
+
+                .Alert h#{$h},
+                .Warning h#{$h},
+                .Error h#{$h},
+                .Success h#{$h},
+                .Note h#{$h},
+                .TK h#{$h} {
+                    @include plumber(
+                        $baseline: $baseline,
+                        $font-size: strip-unit(ms(12 - $h)),
+                        $grid-height: 1rem,
+                        $line-height: round(strip-unit(ms(12 - $h))),
+                        $leading-top: round(strip-unit(ms(12 - $h))),
+                        $leading-bottom: round(strip-unit(ms(1))),
+                        $use-baseline-origin: false
+                    );
+
+                    font-family: quote($family);
+                    font-weight: 700;
+                    border: none;
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
             }
 
             h6 {
@@ -129,15 +154,16 @@ $default-body: clean;
             .Warning,
             .Error,
             .Success,
-            .Note {
+            .Note,
+            .TK {
                 p {
                     @include plumber(
                         $baseline: $baseline,
-                        $font-size: strip-unit(ms(18)),
+                        $font-size: strip-unit(ms(16)),
                         $grid-height: 0.5rem,
                         $leading-bottom: 1,
                         $leading-top: 1,
-                        $line-height: round(strip-unit(ms(21))),
+                        $line-height: round(strip-unit(ms(16))),
                         $use-baseline-origin: false
                     );
 
@@ -152,6 +178,73 @@ $default-body: clean;
                         margin-bottom: 0;
                     }
                 }
+
+                position: relative;
+
+                &::before {
+                    @include plumber(
+                        $baseline: $baseline,
+                        $font-size: strip-unit(ms(14)),
+                        $grid-height: 0.5rem,
+                        $leading-bottom: 0,
+                        $leading-top: 0,
+                        $line-height: round(strip-unit(ms(1))),
+                        $use-baseline-origin: false
+                    );
+
+                    font-family: quote($family);
+
+                    display: flex;
+                    width: max-content;
+                    position: absolute;
+                    top: 0;
+                    left: 1rem;
+                    transform: translateY(-50%);
+                    padding: 1rem 1rem;
+                    border-radius: 4px;
+                    border-width: 1px;
+                    border-style: solid;
+                    text-transform: uppercase;
+                    font-variant-caps: all-small-caps;
+                    letter-spacing: 1px;
+                    font-weight: 500;
+                }
+            }
+
+            .Alert::before {
+                content: 'Alert';
+                background-color: #E2EEF9;
+                border-color: #BAC6D3;
+            }
+
+            .Warning::before {
+                content: 'Warning';
+                background-color: #FFF2DD;
+                border-color: #FDCE88;
+            }
+
+            .Error::before {
+                content: 'Error';
+                background-color: #FCDEDE;
+                border-color: #D2B2B2;
+            }
+
+            .Success::before {
+                content: 'Success';
+                background-color: #E2F9E5;
+                border-color: #BAD3BE;
+            }
+
+            .Note::before {
+                content: 'Note';
+                background-color: #F6F8FA;
+                border-color: #D5D8DA;
+            }
+
+            .TK::before {
+                content: 'TK';
+                background-color: #FFF2DD;
+                border-color: #FDCE88;
             }
 
             figcaption {
