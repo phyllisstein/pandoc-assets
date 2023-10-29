@@ -42,9 +42,9 @@
         $endif$
 
         $if(asset-host)$
-            <link crossorigin='anonymous' href='$asset-host$/styles/bundle.css' rel='stylesheet'>
+            <link href='$asset-host$/styles/bundle.css' rel='stylesheet'>
         $else$
-            <link crossorigin='anonymous' href='https://hot.garb.ag/styles/bundle.css' rel='stylesheet'>
+            <link href='https://hot.garb.ag/styles/bundle.css' rel='stylesheet'>
         $endif$
 
         $if(math)$
@@ -103,8 +103,8 @@ $for(include-after)$
 $include-after$
 $endfor$
 $if(asset-host)$
-    <script async crossorigin='anonymous' src='$asset-host$/bundle.js'></script>
-    <script crossorigin='anonymous' src='$asset-host$/hyphenopoly/Hyphenopoly_Loader.js'></script>
+    <script src='$asset-host$/bundle.js'></script>
+    <script src='$asset-host$/hyphenopoly/Hyphenopoly_Loader.js'></script>
     <script>
         window.addEventListener("load", () => {
             window.Hyphenopoly.config({
@@ -133,8 +133,8 @@ $if(asset-host)$
         })
     </script>
 $else$
-    <script defer crossorigin='anonymous' src='https://hot.garb.ag/bundle.js'></script>
-    <script crossorigin='anonymous' src='https://hot.garb.ag/hyphenopoly/Hyphenopoly_Loader.js'></script>
+    <script src='https://hot.garb.ag/bundle.js'></script>
+    <script src='https://hot.garb.ag/hyphenopoly/Hyphenopoly_Loader.js'></script>
     <script>
         window.addEventListener("load", () => {
             window.Hyphenopoly.config({
